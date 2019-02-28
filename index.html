@@ -162,7 +162,10 @@
     <section class="action">
         <h2>So what are you waiting for?</h2>
         <p>Click the button below to get started.</p>
-        <button class="start" onclick="ga('send', 'event', 'User', 'Klicks auf Start', 'Get Started', '1')">
+        <button class="start" onclick="gtag('event', 'send', {
+                'event_category': 'User',
+                'event_label': 'Klicks auf Start'
+              });">
             Get Started
         </button>
     </section>
