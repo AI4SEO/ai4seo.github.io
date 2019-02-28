@@ -162,7 +162,12 @@
     <section class="action">
         <h2>So what are you waiting for?</h2>
         <p>Click the button below to get started.</p>
-        <button class="start" onClick="_gaq.push(['_trackEvent', 'User', 'Klicks auf Starten', 'Get Started']);">
+        <button class="start" onClick="ga('send', {
+            hitType: 'event',
+            eventCategory: 'User',
+            eventAction: 'Klicks auf Starten',
+            eventLabel: 'Get Started'
+          });">
             Get Started
         </button>
     </section>
