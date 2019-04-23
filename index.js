@@ -109,7 +109,6 @@ $(document).ready(function () {
     }
 
     function checkArcPosition() {
-        console.log(highlightAnimationState);
         if ($(".functionalities")[0].getBoundingClientRect().top < 100 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().top + 100 + $(".functionality:nth-child(1) .text").height() + 196 > window.innerHeight) {
 
             if (highlightAnimationState == 0 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().top > window.innerHeight) {
