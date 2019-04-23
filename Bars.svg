@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="no"?>
+<!--Generator: Gravit.io-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="341.1" height="454.8" style="isolation:isolate" viewBox="0 0 341.1 454.8">
+    <defs>
+        <clipPath id="_clipPath_zaRZ1f21w8rUCnitQbkdsgyPoIw3YHLT">
+            <rect width="341.1" height="454.8"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_zaRZ1f21w8rUCnitQbkdsgyPoIw3YHLT)">
+        <rect width="341.1" height="454.8" x="0" y="0" fill="rgb(255,255,255)" transform="matrix(1,0,0,1,0,0)"/>
+        <g id="Group">
+            <g id="Group">
+                <g id="Group">
+                    <g id="Group">
+                        <g id="Group">
+                            <path fill="rgb(11,177,211)" d=" M 341.1 139.4 L 276.6 176.9 L 211.6 139.4 L 276.2 101.9 L 341.1 139.4 Z "/>
+                        </g>
+                        <g id="Group">
+                            <path fill="rgb(11,146,211)" d=" M 341.1 139.4 L 340.8 371.6 L 276.2 409.1 L 276.6 176.9 L 341.1 139.4 Z "/>
+                        </g>
+                        <g id="Group">
+                            <path fill="rgb(11,117,211)" d=" M 276.6 176.9 L 276.2 409.1 L 211.2 371.6 L 211.6 139.4 L 276.6 176.9 Z "/>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group">
+                    <g id="Group">
+                        <g id="Group">
+                            <path fill="rgb(11,146,211)" d=" M 129.9 70.5 L 65.3 108 L 0.3 70.5 L 64.9 33 L 129.9 70.5 Z "/>
+                        </g>
+                        <g id="Group">
+                            <path fill="rgb(11,117,211)" d=" M 129.9 70.5 L 129.5 362.4 L 64.9 399.9 L 65.3 108 L 129.9 70.5 Z "/>
+                        </g>
+                        <g id="Group">
+                            <path fill="rgb(8,83,148)" d=" M 65.3 108 L 64.9 399.9 L 0 362.4 L 0.3 70.5 L 65.3 108 Z "/>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group">
+                    <g id="Group">
+                        <g id="Group">
+                            <path fill="rgb(11,117,211)" d=" M 231.2 37.5 L 166.7 75 L 101.7 37.5 L 166.2 0 L 231.2 37.5 Z "/>
+                        </g>
+                        <g id="Group">
+                            <path fill="rgb(8,83,148)" d=" M 231.2 37.5 L 230.8 417.3 L 166.3 454.8 L 166.7 75 L 231.2 37.5 Z "/>
+                        </g>
+                        <g id="Group">
+                            <path fill="rgb(6,58,104)" d=" M 166.7 75 L 166.3 454.8 L 101.3 417.3 L 101.7 37.5 L 166.7 75 Z "/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

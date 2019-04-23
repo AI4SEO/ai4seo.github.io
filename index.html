@@ -6,11 +6,14 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135350839-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-135350839-1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-135350839-1');
+    </script>
 
     <title>AI4SEO</title>
 
@@ -21,11 +24,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
     <script src="index.js"></script>
 </head>
 
@@ -44,129 +49,209 @@
     <section id="landing">
         <h1>AI 4 SEO & SEO 4 YOU</h1>
         <p>
-            Hi, nice to have you here!<br>
-            Welcome to AI 4 SEO, where you can make use of our artificial intelligence developed for analyzing your
-            website's content in respect of SEO and improving your ranking.
-
+            Welcome to AI 4 SEO!<br>
+            Use our AI-driven tool to boost your ranking.
         </p>
-        <button id="see">See How It Works</button>
+        <div class="buttons">
+            <button class="start" onclick="gtag('event', 'Klicks auf Starten', {
+                    'event_category': 'User',
+                    'event_label': 'Get Started Landing'
+                  });">Get
+                Started</button>
+            <button class="see"><span class="material-icons">arrow_downward</span>See How It Works</button>
+        </div>
         <img id="landingImage" src="LandingImage.jpg">
     </section>
-    <div class="container">
-        <section class="how">
+    <div class="container" data-scroll-speed="20">
+        <section id="hero">
             <h2>HOW IT WORKS</h2>
-            <img src="Ai.svg">
-            <p>
-                Wouldn't it be nice to make use of an artificial intelligence to analyze your website towards SEO and
-                improve it,<br> without you having to do anything?<br>
-                Glad you came by, because that's exactly what we're doing or our AI to be exact. Sounds like magic?
-                It's not!
-            </p>
-            <img src="Improve.svg">
         </section>
-        <section class="functionality">
-            <h3>Here's how we did it</h3>
-            <div class="article">
+        <section class="how">
+            <div class="card">
+                <img src="Analytics.svg">
+                <h2>Analyze</h2>
                 <p>
-                    As you might know most of your website's sourcecode is publicly readable for anyone. So is for our
-                    AI
-                    when
-                    you
-                    tell us an URL. Therefore we took SEO analysis to
-                    the next step as our AI will also improve your ranking.
+                    AI4SEO is an AI-driven SEO analysis tool that provides analytics on your SEO
+                    objectives, along with detection of correlations and causalities to help you realize your vision.
                 </p>
-                <img src="Instruction.svg">
             </div>
-            <div class="article">
-                <img src="SEO.svg">
+            <div class="card">
+                <img src="Laptop.svg">
+                <h2>Improve</h2>
                 <p>
-                    You might have used SEO analysis tools in the past. The first step works pretty much the
-                    same way. We'll have a crawler go through the code and check for topics to improve.
-                    We'll then display the results in a nice manner so that you can see what to improve on and what's
-                    more
-                    important and
-                    what's not.
-                    Now step two seems like magic as we are actually generating search engine
-                    optimized code for you.
-                    However all we do is intelligently produce content, translate it to code and give it back to you.
+                    Our artificial intelligence analyzes and provides code for SEO objectives in a matter of seconds,
+                    allowing you to track improvements and enabling new ways to create more transparent SEO rankings.
                 </p>
 
             </div>
-            <div class="article">
+            <div class="card">
+                <img src="Analysis.svg">
+                <h2>Learn</h2>
                 <p>
-                    Here is an example. Say you have provided an URL for us, we crawled through your website and found
-                    that
-                    one
-                    of the improvable topics was missing alternative texts for images.
-                    In order to improve on that our AI needs to know what's in the picture.
-                    So
-                    it will use a cognitive service for computer vision to check how similar images have been
-                    categorized in the past.
-                    As soon as it found out the most suitable category, it will check for trends and terms in that
-                    field to
-                    provide an high-quality alternative text
-                    that effects your SEO score.
-                </p>
-                <img src="CognitiveServiceVision.svg">
-            </div>
-            <div class="article">
-                <img src="Handshake.svg">
-                <p>
-                    So far so good, we have related words for the image we want to describe. Now we need a sentence and
-                    code to
-                    embed. To accomplish that the AI will use another cognitve service to form the related words to
-                    smooth
-                    sentences and
-                    put it
-                    in the respective tags and attributes to provide the embeddable code that you want.
-                    And that's it.
-                    Have fun saving time and improving your SEO score by using our service!
+                    As a breakthrough approach to search engine optimization, AI4SEO enables customers to push their
+                    online visibility to the edge and helps you to understand and develope new SEO content
+                    strategies.
                 </p>
             </div>
         </section>
-        <section class="product">
-            <h2>THE PRODUCT</h2>
-            <h3>Save time</h3>
-            <p>
-                Stop wasting time on trying to gain knowledge about SEO and trying to improve your ranking without
-                success. Simply have our Ai do it for you.
-            </p>
-            <h3>Save money</h3>
-            <p>
-                No one likes to spend money if it doesn't pay off. Quit with finding yourself in situations, where you
-                don't exactly know how great your benefit is. We offer a model that charges you only for the amount of
-                ranking our AI has improved for you. You pay for what you get!
-            </p>
-            <h3>Increase your revenue</h3>
-            <p>
-                We offer two different approaches for you to have our AI doing SEO for you.
-            </p>
-            <h4>2. Provide an URL</h4>
-            <p>
-                If you do not want to give us single time write access to your website's files, feel free to paste your
-                url, so that our artificial intelligence can crawl your site looking for topics to
-                improve on in order to raise your ranking. Ater analyzing our AI will provide code snippets for you to
-                embed in your code, improve your ranking and increase your revenue.
-            </p>
-            <h4>1. Share your files</h4>
-            <p>
-                By sharing your files our AI will be able to analyze your site and code for search engine "optimizable"
-                topics and provide a modified, optimized file that you can upload to your server. Choosing this
-                approach will save even more time since you don't have to embed any code allowing you to improve your
-                ranking even faster. A better ranking will generate more users and in the next step these users will
-                enable you to increase your revenue.
-            </p>
+        <section class="functionalities">
+            <div class="functionality">
+                <div class="article">
+                    <div class="text">
+                        <h3>Built to enhance ranking right alongside your webtechnologies.</h3>
+                        <p>
+                            Our artificial intelligence, will be periodically upgraded and learn how to best satisfy
+                            search
+                            engine algorithm rules alongside the analysis capabilities and optimized code provision, so
+                            you
+                            can focus on
+                            realizing your
+                            vision and strategies to get more customers and revenue.
+                        </p>
+                    </div>
+                    <img class="deviceAnimation stacks" src="Stacks.svg">
+                    <img class="deviceAnimation cylinders" src="Cylinders.svg">
+                    <img class="deviceAnimation bars" src="Bars.svg">
+                    <img class="deviceAnimation pie" src="Pie.svg">
+                    <img class="arcDevices" src="Devices.svg">
+                    <img class="arcService svg" src="Service.svg">
+                    <img class="arcTool" src="Tool.svg">
+                    <div class="lineBottom"></div>
+                    <div class="lineLeft"></div>
+                    <div class="lineRight"></div>
+                </div>
+            </div>
+            <div class="functionality">
+                <div class="article">
+                    <div class="text">
+                        <h3>Innovative technology optimized for transparency.</h3>
+
+                        <p>
+                            AI4SEO consumes ranking API's like SERPSTAT to track your improvement and develope SEO
+                            content
+                            strategies, so
+                            you can take advantage of transparent data analysis to push your improvement to the limit
+                            and
+                            beyond.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="functionality">
+                <div class="article">
+                    <div class="text">
+                        <h3>Powerful yet familiar tool interfaces.</h3>
+
+                        <p>
+                            With a powerful SEO toolset developed to gain more insights, you'll have easy and fast-pace
+                            access to different
+                            features and adjustments that provide freedom for you to gain exprerience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="functionality">
+                <div class="article">
+                    <div class="text">
+                        <h3>Enabling reasonably priced services across all device types.</h3>
+
+                        <p>
+                            The AI4SEO platform is usable for free across desktops, laptops, tablets and mobile devices
+                            using our responsive design that we also offer as a service for you to further improve your
+                            ranking while only being charged once improvements are detected.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="closing">
+            <object type="image/svg+xml" data="Logo.svg" width="100" height="100"></object>
+            <h2>Boost your SEO ranking</h2>
+            <button class="start" onclick="gtag('event', 'Klicks auf Starten', {
+                'event_category': 'User',
+                'event_label': 'Get Started Middle'
+              });">Get
+                Started</button>
+        </section>
+        <section class="advantages">
+            <h2>Experience a new generation of SEO</h2>
+            <div class="advantage">
+                <img src="Flame.svg">
+                <h3>Continually evolving service</h3>
+                <p>Our AI is constantly learning, weather it is how to best optimize SEO or how to increase your
+                    revenue.</p>
+            </div>
+            <div class="advantage">
+                <img src="Cursor.svg">
+                <h3>Low barriers to entry</h3>
+                <p>Users can jump into the service by just a click, providing a source like an url or other options to
+                    choose from.</p>
+            </div>
+            <div class="advantage">
+                <img src="Time.svg">
+                <h3>Safe time</h3>
+                <p>Cognitive Services allow a clean code generation and data analysis in a matter of seconds.</p>
+            </div>
+            <div class="advantage">
+                <img src="Revenue.svg">
+                <h3>Increase revenue</h3>
+                <p>Since revenue is what matters, you'll be supported in developing content strategies while only small
+                    budget is required.</p>
+            </div>
+            <div class="advantage">
+                <img src="Search.svg">
+                <h3>Pay only on rank up</h3>
+                <p>The power of API consumption and strong analysis capabilities create more transparency for only
+                    charging you, when you improve.</p>
+            </div>
+        </section>
+        <section class="technologyStack">
+            <h2>Here is some of the core technologies we use.</h2>
+            <div class="technologies">
+                <div class="technology">
+                    <img src="AzureCognativeServices.svg">
+                    <img id="owner" src="Microsoft.svg">
+                </div>
+                <div class="technology">
+                    <img src="GoogleAnalytics.svg">
+                </div>
+                <div class="technology">
+                    <img src="Github.svg">
+                </div>
+                <div class="technology">
+                    <img src="Dialogflow.svg">
+                </div>
+                <div class="technology">
+                    <img src="FileZilla.svg">
+                </div>
+                <div class="technology">
+                    <img src="Serpstat.svg">
+                </div>
+            </div>
         </section>
     </div>
     <section class="action">
-        <h2>So what are you waiting for?</h2>
+        <img id="closingImage" src="Server.jpg">
+        <h2>Try the service for free until your ranking improves</h2>
         <p>Click the button below to get started.</p>
         <button class="start" onclick="gtag('event', 'Klicks auf Starten', {
             'event_category': 'User',
-            'event_label': 'Get Started'
+            'event_label': 'Get Started Closing'
           });">Get
             Started</button>
     </section>
+    <footer>
+        <div class="social">
+            <p>Follow us</p>
+            <div class="logo twitter"></div>
+            <div class="logo facebook"></div>
+            <div class="logo instagram"></div>
+            <div class="logo reddit"></div>
+        </div>
+        <div class="lower">
+            <p>AI4SEO</p>
+        </div>
+    </footer>
 </body>
 
 </html>

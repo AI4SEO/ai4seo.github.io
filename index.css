@@ -1,13 +1,14 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Exo 2', sans-serif;
+    font-family: Roboto, Helvetica, arial, sans-serif;
     font-size: 18px;
+    line-height: 1.5;
 }
 
 .container {
-    background-image: linear-gradient(to right, #0BB1D3, #9E30FF);
-    padding-bottom: 100px;
+    background-color: #eef1f4;
+    box-shadow: 0px -20px 50px 20px #ffffff, 0 20px 50px -20px #ffffff;
 }
 
 header {
@@ -18,11 +19,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: linear-gradient(to right, #0BB1D3, #9E30FF);
+    background-color: white;
+    z-index: 2;
+    box-shadow: 0px 20px 50px -20px #ffffff;
 }
 
 #logo {
-    margin-left: 94px;
+    margin-left: 26px;
 }
 
 header object {
@@ -32,7 +35,7 @@ header object {
 }
 
 nav {
-    margin-right: 100px;
+    margin-right: 32px;
 }
 
 li {
@@ -45,7 +48,7 @@ li:nth-child(n+2) {
 }
 
 li a {
-    color: white;
+    color: #5F6368;
     text-transform: uppercase;
     font-size: 0.8em;
     text-decoration: none;
@@ -70,80 +73,293 @@ li a::after {
 }
 
 li a:hover::after {
-    background: white;
+    background: #5F6368;
     left: 0;
     width: 100%;
 }
 
 section {
-    padding: 50px 100px 0;
+    padding: 100px 100px 0;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: #000;
+    background-color: #ffffff;
 }
 
 p {
-    color: white;
+    color: #888e95;
+    transition: color 1s ease;
 }
 
 #landing {
     margin-top: 80px;
     background-color: transparent;
     background-size: cover;
-    height: 800px;
+    height: calc(100vh - 180px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: height 1s ease;
 }
 
-.functionality {
-    margin-top: 50px;
+#hero {
+    background-color: white;
+    padding-bottom: 100px;
 }
 
-.functionality h3 {
+#hero h2 {
+    font-size: 4em;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #0BB1D3, #0B75D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-self: center;
     width: max-content;
 }
 
+.deviceAnimation {
+    position: fixed;
+    z-index: 2;
+    transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.cylinders {
+    top: 605px;
+    right: 436px;
+    width: 40px;
+    height: 40px;
+}
+
+.bars {
+    top: 630px;
+    right: 408px;
+    width: 20px;
+    height: 20px;
+}
+
+.stacks {
+    top: 598px;
+    right: 596px;
+    width: 50px;
+    height: 50px;
+}
+
+.pie {
+    top: 555px;
+    right: 490px;
+    width: 70px;
+    height: 70px;
+}
+
+.lineBottom {
+    width: 300px;
+    height: 47px;
+    border-bottom: 1px solid #888e95;
+    position: absolute;
+    right: 150px;
+    margin-top: 478px;
+    z-index: 0;
+}
+
+.lineLeft {
+    width: 212px;
+    height: 58px;
+    border-bottom: 1px solid #888e95;
+    position: absolute;
+    right: 289px;
+    margin-top: 400px;
+    z-index: 0;
+    transform: rotate(-45deg);
+}
+
+.lineRight {
+    width: 212px;
+    height: 47px;
+    border-bottom: 1px solid #888e95;
+    position: absolute;
+    right: 103px;
+    margin-top: 410px;
+    z-index: 0;
+    transform: rotate(45deg);
+}
+
+.technologyStack {
+    padding: 100px 40px 100px;
+    align-items: center;
+    box-shadow: inset 0 10px 15px -5px rgb(0, 0, 0);
+}
+
+.technologyStack h2 {
+    font-size: 44px;
+    font-weight: 300;
+    background-image: linear-gradient(to right, #0BB1D3, #0B75D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 0;
+}
+
+.technologies {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 8px;
+}
+
+.technology {
+    display: flex;
+    justify-content: center;
+    padding: 60px 10px;
+}
+
+.technology img {
+    width: 100%;
+    height: 100%;
+}
+
+.closing {
+    padding-bottom: 100px;
+    align-items: center;
+    background-color: white;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+.closing object {
+    width: 120px;
+    height: 120px;
+    padding-left: 20px;
+    margin-bottom: 28px;
+}
+
+.closing h2 {
+    color: #888e95;
+    font-size: 44px;
+    font-weight: 300;
+}
+
+.closing button {
+    margin-top: 4px;
+}
+
+.functionalities {
+    width: 100%;
+    padding: 0;
+}
+
+.arcTool,
+.arcDevices,
+.arcService {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    margin: 350px 0 0 80px;
+    background-color: inherit;
+    box-shadow: 0px 10px 10px 10px inherit;
+    transition: opacity .5s ease-in-out, transform .3s ease-in-out;
+}
+
+.arcService {
+    width: 100px;
+    height: 102px;
+    margin: 455px 0 0 200px;
+    border: 20px solid inherit;
+    transition: transform .3s ease-in-out, opacity .2s ease-in-out;
+}
+
+.arcTool {
+    width: 102px;
+    height: 102px;
+    position: absolute;
+    margin: 290px 0 0 0;
+    right: 248px;
+    border: 20px solid inherit;
+}
+
+.functionality {
+    flex-direction: row;
+}
+
+.functionality:nth-child(2n) {
+    background-color: rgba(209, 218, 225, .1056);
+}
+
+.functionality h3 {
+    font-size: 44px;
+    font-weight: 300;
+    margin-top: 0;
+}
+
 .functionality p {
-    width: 50%;
-    margin: 20px 0;
+    font-weight: 300;
 }
 
 .how {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 100px 32px;
+    box-shadow: inset 0 0 10px #000000;
+    background-color: #eef1f4;
 }
 
 .article {
     display: flex;
-    margin: 20px 0;
 }
 
-.article img {
-    margin: auto;
+.text {
+    width: 40%;
+    margin: 20px 0;
+    padding: 200px 0 70px 70px;
+}
+
+.card {
+    padding: 60px 40px;
+}
+
+.card img {
+    fill: white;
+}
+
+.advantage,
+.card,
+.technology {
+    position: relative;
     background-color: white;
-    border: 10px solid white;
     box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .5);
-    border-radius: 25px;
+    flex: 1 1 100%;
+    margin: 0 13px;
+    border-radius: 2px;
+    flex-direction: column;
+}
+
+#owner {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.advantage p,
+.card p {
+    color: #888e95;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.card img {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .how h2,
 .how h3 {
     align-self: center;
     width: max-content;
-}
-
-.how img {
-    align-self: center;
-    margin: 30px 0;
-    background-color: white;
-    border: 10px solid white;
-    box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .5);
-    border-radius: 25px;
-}
-
-.how p {
-    text-align: center;
+    font-weight: 300;
 }
 
 p,
@@ -158,6 +374,7 @@ h1 {
     font-size: 4em;
     color: white;
     font-family: 'Orbitron';
+    transition: color 1s ease, text-shadow 1s ease;
 }
 
 h2 {
@@ -167,16 +384,29 @@ h2 {
 h1,
 #landing p {
     text-align: center;
-    width: 80%;
+    width: 100%;
     margin-top: 80px;
+    font-weight: 300;
 }
 
 #landing p {
+    font-size: 2em;
     color: white;
+    height: 100px;
+    transition: color 1s ease, text-shadow 1s ease;
 }
 
-#see,
-.action button {
+.buttons {
+    display: flex;
+}
+
+#landing .start {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.start {
     font-family: inherit;
     font-size: 0.8em;
     outline: 0;
@@ -184,21 +414,55 @@ h1,
     height: 60px;
     padding: 0 40px;
     border: none;
-    border-radius: 50px;
+    border-radius: 2px;
     color: white;
-    background-image: linear-gradient(to right, #0BB1D3, #9E30FF);
-    background-color: #9E30FF;
-    box-shadow: 2px 6px 16px 0 rgba(11, 177, 211, .75);
+    background-image: linear-gradient(to right, #0BB1D3, #0B75D3);
+    box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .75);
     text-transform: uppercase;
+    transition: box-shadow 1s, background-color 1s ease;
+    z-index: 1;
+
 }
 
-#see:hover,
-.action button:hover {
-    transition: .1s linear;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-    box-shadow: 2px 6px 16px 0 rgba(158, 48, 255, .75);
+.see {
+    margin-left: 450px;
+    outline: 0;
+    margin-top: 80px;
+    z-index: 1;
+    color: white;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 40px;
+    height: 60px;
+    transition: color 1s ease-in-out;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font: inherit;
+    transition: margin .24s ease-in-out;
+}
+
+#see {
+    transition: margin .24s ease-in-out;
+    margin-top: 112px;
+}
+
+#see span {
+    transition: margin .24s ease-in-out;
+    margin-top: 12px;
+}
+
+#landing .start:hover {
+    transform: scale(1.05) translateX(-47.5%);
+}
+
+.start:hover {
+    box-shadow: 0px 0px 25px 5px rgba(11, 177, 211, 1);
+    background-image: linear-gradient(#0BB1D3, #0BB1D3);
+    transition: box-shadow 1s, background-color 1s ease;
+    animation-play-state: paused;
+
 }
 
 #landingImage {
@@ -208,19 +472,139 @@ h1,
     width: 100%;
     height: auto;
     filter: brightness(0.5);
+    transition: 1s filter ease;
+}
+
+#closingImage {
+    bottom: 0;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    filter: brightness(.7) saturate(2.5) contrast(1.2);
+    transition: 1s filter ease;
     object-fit: contain;
 }
 
 .action {
-    margin-bottom: 300px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 200px);
+    padding: 100px 100px 0;
     align-items: center;
+    visibility: hidden;
+    z-index: -1;
 }
 
 .action h2,
 .action p {
     width: max-content;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 20px;
 }
 
-.action p {
-    margin-top: 80px;
+.action button {
+    margin: 40px 0;
+}
+
+.advantages {
+    background-image: linear-gradient(to right, #0BB1D3, #0B75D3);
+    width: calc(100% - 80px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 100px 40px;
+}
+
+.advantage {
+    max-width: calc(100%/3 - 120px);
+    flex: 1 1 100%;
+    padding: 60px 40px;
+    margin: 13px;
+    width: 100%;
+}
+
+.advantage img {
+    width: 50px;
+    height: 50px;
+}
+
+.advantages h2 {
+    font-size: 44px;
+    font-weight: 300;
+    color: white;
+    flex: 0 1 100%;
+    text-align: center;
+    margin: 0 0 60px;
+}
+
+.advantage h3,
+.advantages h2 {
+    font-weight: 300;
+}
+
+footer {
+    background-color: #f1f3f4;
+}
+
+.social {
+    border-bottom: 1px solid rgba(153, 153, 153, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 30px 32px;
+}
+
+.social p {
+    color: #000000;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+    margin-left: 32px;
+}
+
+.twitter {
+    background-color: #000000;
+    -webkit-mask: url(Twitter.svg) no-repeat center;
+    mask: url(Twitter.svg) no-repeat center;
+}
+
+.facebook {
+    background-color: #000000;
+    -webkit-mask: url(Facebook.svg) no-repeat center;
+    mask: url(Facebook.svg) no-repeat center;
+}
+
+.instagram {
+    background-color: #000000;
+    -webkit-mask: url(Instagram.svg) no-repeat center;
+    mask: url(Instagram.svg) no-repeat center;
+}
+
+.reddit {
+    background-color: #000000;
+    -webkit-mask: url(Reddit.svg) no-repeat center;
+    mask: url(Reddit.svg) no-repeat center;
+}
+
+.twitter:hover,
+.facebook:hover,
+.instagram:hover,
+.reddit:hover {
+    opacity: .75;
+}
+
+.lower {
+    height: calc(100% - 144px);
+    padding: 30px 32px;
+    display: flex;
+    align-items: center;
+}
+
+.lower p {
+    font-family: 'Orbitron';
+    font-size: 28px;
+    color: #5F6368;
 }

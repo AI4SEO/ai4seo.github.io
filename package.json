@@ -1,0 +1,26 @@
+{
+  "name": "ai4seo",
+  "version": "1.0.0",
+  "description": "SEO Tool",
+  "main": "index.js",
+  "dependencies": {
+    "jquery-parallax.js": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ai4seo@github.com/AI4SEO/ai4seo.github.io.git"
+  },
+  "keywords": [
+    "SEO"
+  ],
+  "author": "Karim Abdel Ghany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AI4SEO/ai4seo.github.io/issues"
+  },
+  "homepage": "https://github.com/AI4SEO/ai4seo.github.io#readme"
+}
