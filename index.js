@@ -83,10 +83,12 @@ $(document).ready(function () {
             $(".action").css("visibility", "visible");
             $(".container").css("margin-bottom", $("#closingImage").height() + "px");
             $(".container").css("transform", "");
+            $(".container").css("margin-top", containerTranslateAmount + "px");
             $("footer").css("height", window.innerHeight - $("#closingImage").height() - $("header").height() + "px");
         } else {
             $(".action").css("visibility", "hidden");
             $(".container").css("transform", "translateY(" + containerTranslateAmount + "px)");
+            $(".container").css("margin-top", 0);
         }
     }
 
@@ -183,6 +185,7 @@ $(document).ready(function () {
                 highlightAnimationState = 6;
             }
             $(".container").css("transform", "");
+            $(".container").css("margin-top", containerTranslateAmount + "px");
             var marginLeft = $(".text").width() + 170;
             $(".deviceAnimation").show();
             $(".lineBottom").css("position", "fixed");
