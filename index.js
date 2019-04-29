@@ -23,6 +23,8 @@ $(document).ready(function () {
     var footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     var containerTranslateAmount;
     var highlightAnimationState = 0;
+    var animationState = 0;
+    var status = true;
 
     $.fn.moveIt = function () {
         var $window = $(window);
@@ -110,54 +112,116 @@ $(document).ready(function () {
         }
     }
 
+    function getHighlightAnimationState() {
+        var now = highlightAnimationState;
+
+        if ($(".functionality:nth-child(4)")[0].getBoundingClientRect().top > window.innerHeight && $(".functionality:nth-child(2)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(2)").height() / 2 + 100 >= window.innerHeight) {
+            highlightAnimationState = 1;
+        } else if ($(".functionality:nth-child(2)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(2)").height() / 2 + 100 < window.innerHeight && $(".functionality:nth-child(2)")[0].getBoundingClientRect().bottom >= window.innerHeight) {
+            highlightAnimationState = 2;
+        } else if ($(".functionality:nth-child(2)")[0].getBoundingClientRect().bottom < window.innerHeight && $(".functionality:nth-child(3)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(3)").height() / 2 + 100 >= window.innerHeight) {
+            highlightAnimationState = 3;
+        } else if ($(".functionality:nth-child(3)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(3)").height() / 2 + 100 < window.innerHeight && $(".functionality:nth-child(3)")[0].getBoundingClientRect().bottom >= window.innerHeight) {
+            highlightAnimationState = 4;
+        } else if ($(".functionality:nth-child(3)")[0].getBoundingClientRect().bottom < window.innerHeight && $(".functionality:nth-child(4)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(4)").height() / 2 + 100 >= window.innerHeight) {
+            highlightAnimationState = 5;
+        } else if ($(".functionality:nth-child(4)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(4)").height() / 2 + 100 < window.innerHeight) {
+            highlightAnimationState = 6;
+        }
+
+        if (now == highlightAnimationState) {
+            status = false;
+        } else {
+            status = true;
+        }
+
+        return highlightAnimationState;
+    }
+
     function checkArcPosition() {
         if ($(".functionalities")[0].getBoundingClientRect().top < 100 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().top + 100 + $(".functionality:nth-child(1) .text").height() + 196 > window.innerHeight) {
-
-            if (highlightAnimationState == 0 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().top > window.innerHeight) {
+            animationState = getHighlightAnimationState();
+            console.log(animationState, status);
+            if (animationState == 1 && status == true) {
+                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".arcService").remove();
                 $(".arcTool").remove();
                 $(".functionality:nth-child(1) .text").after("<img class='arcTool' style='transform:scale(1.5)' src='ToolHighlighted.svg'>");
                 setTimeout(function () {
                     $(".arcTool").css("transform", "scale(1)");
                 }, 300)
-                highlightAnimationState = 1;
-            } else if (highlightAnimationState == 1 && $(".functionality:nth-child(2)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(2)").height() / 2 + 100 < window.innerHeight) {
+                $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
+            } else if (animationState == 2 && status == true) {
+                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
                 $(".arcService").remove();
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' style='transform:scale(1.5)' src='ServiceHighlighted.svg'>");
                 setTimeout(function () {
                     $(".arcService").css("transform", "scale(1)");
                 }, 300)
-                highlightAnimationState = 2;
-            } else if (highlightAnimationState == 2 && $(".functionality:nth-child(2)")[0].getBoundingClientRect().bottom < window.innerHeight) {
+            } else if (animationState == 3 && status == true) {
+                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".arcDevices").remove();
                 $(".arcService").remove();
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' style='opacity:0' src='ServiceHighlightedAnimation.svg'>");
                 setTimeout(function () {
                     $(".arcService").css("opacity", "1");
                 }, 10)
-                highlightAnimationState = 3;
-            } else if (highlightAnimationState == 3 && $(".functionality:nth-child(3)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(3)").height() / 2 + 100 < window.innerHeight) {
+                $(".functionality:nth-child(1) .text").after("<img class='arcDevices' src='Devices.svg'>");
+            } else if (animationState == 4 && status == true) {
+                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+                setTimeout(function () {
+                    $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+                }, 100)
+                setTimeout(function () {
+                    $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+                }, 200)
+                setTimeout(function () {
+                    $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+                    $(".arcTool").remove();
+                    $(".arcService").remove();
+                    $(".arcDevices").remove();
+                    $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='transform:scale(1.5)' src='DevicesHighlighted.svg'>");
+                    $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
+                    $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='Tool.svg'>");
+                }, 300)
+                setTimeout(function () {
+                    $(".arcDevices").css("transform", "scale(1)");
+                }, 600)
+            } else if (animationState == 5 && status == true) {
                 $(".arcTool").remove();
                 $(".arcService").remove();
                 $(".arcDevices").remove();
-                $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='transform:scale(1.5)' src='DevicesHighlighted.svg'>");
+                $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='opacity:0' src='DevicesHighlighted.svg'>");
+                $(".functionality:nth-child(1) .text").after("<img class='arcService' style='opacity:0' src='Service.svg'>");
+                $(".functionality:nth-child(1) .text").after("<img class='arcTool' style='opacity:0' src='Tool.svg'>");
+                $(".arcDevices").css("opacity", "1");
+                $(".arcService").css("opacity", "1");
+                $(".arcTool").css("opacity", "1");
                 setTimeout(function () {
-                    $(".arcDevices").css("transform", "scale(1)");
+                    $(".pie").css({ "opacity": 1, "transform": "scale(1)" });
                 }, 300)
-                $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
-                $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='Tool.svg'>");
-                highlightAnimationState = 4;
-            } else if (highlightAnimationState == 4 && $(".functionality:nth-child(3)")[0].getBoundingClientRect().bottom < window.innerHeight) {
-                $(".pie").css({ "opacity": 1, "transform": "scale(1)" });
                 setTimeout(function () {
                     $(".cylinders").css({ "opacity": 1, "transform": "scale(1)" });
-                }, 100)
+                }, 400)
                 setTimeout(function () {
                     $(".stacks").css({ "opacity": 1, "transform": "scale(1)" });
-                }, 200)
+                }, 500)
                 setTimeout(function () {
                     $(".bars").css({ "opacity": 1, "transform": "scale(1)" });
-                }, 300)
-                highlightAnimationState = 5;
-            } else if (highlightAnimationState == 5 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().bottom - $(".functionality:nth-child(4)").height() / 2 + 100 < window.innerHeight) {
+                }, 600)
+            } else if (animationState == 6 && status == true) {
+                if ($(".arcTool").attr("src") == "ToolHighlighted.svg" && $(".arcService").attr("src") == "ServiceHighlightedAnimation.svg" && $(".arcDevices").attr("src") == "DevicesHighlightedEnd.svg") {
+                    return;
+                }
                 $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
                 setTimeout(function () {
                     $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
@@ -182,7 +246,6 @@ $(document).ready(function () {
                     $(".arcService").css("opacity", "1");
                     $(".arcTool").css("opacity", "1");
                 }, 600)
-                highlightAnimationState = 6;
             }
             $(".container").css("transform", "");
             $(".container").css("margin-top", containerTranslateAmount + "px");
@@ -210,6 +273,11 @@ $(document).ready(function () {
             $(".arcTool").css("right", 248 + "px");
             $(".arcTool").css("margin-top", "0");
         } else {
+            highlightAnimationState = 0;
+            $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+            $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+            $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+            $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
             $(".lineBottom").remove();
             $(".lineLeft").remove();
             $(".lineRight").remove();
@@ -226,7 +294,6 @@ $(document).ready(function () {
             $(".arcService").css("top", "0");
             $(".arcService").css("margin-left", "200px");
             $(".arcService").css("margin-top", "455px");
-            highlightAnimationState = 0;
         }
     }
 
