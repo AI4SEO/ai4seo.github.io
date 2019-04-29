@@ -169,12 +169,14 @@ $(document).ready(function () {
                 $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
                 $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
                 $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".arcTool").remove();
                 $(".arcDevices").remove();
                 $(".arcService").remove();
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' style='opacity:0' src='ServiceHighlightedAnimation.svg'>");
                 setTimeout(function () {
                     $(".arcService").css("opacity", "1");
                 }, 10)
+                $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='ToolHighlighted.svg'>");
                 $(".functionality:nth-child(1) .text").after("<img class='arcDevices' src='Devices.svg'>");
             } else if (animationState == 4 && status == true) {
                 $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
