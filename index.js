@@ -180,6 +180,12 @@ $(document).ready(function () {
                 $(".functionality:nth-child(1) .text").after("<img class='arcDevices' src='Devices.svg'>");
             } else if (animationState == 4 && status == true) {
                 $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+                $(".arcTool").remove();
+                $(".arcService").remove();
+                $(".arcDevices").remove();
+                $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='transform:scale(1.5)' src='DevicesHighlighted.svg'>");
+                $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
+                $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='Tool.svg'>");
                 setTimeout(function () {
                     $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
                 }, 100)
@@ -188,15 +194,9 @@ $(document).ready(function () {
                 }, 200)
                 setTimeout(function () {
                     $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
-                    $(".arcTool").remove();
-                    $(".arcService").remove();
-                    $(".arcDevices").remove();
-                    $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='transform:scale(1.5)' src='DevicesHighlighted.svg'>");
-                    $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
-                    $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='Tool.svg'>");
+                    $(".arcDevices").css("transform", "scale(1)");
                 }, 300)
                 setTimeout(function () {
-                    $(".arcDevices").css("transform", "scale(1)");
                 }, 600)
             } else if (animationState == 5 && status == true) {
                 $(".arcTool").remove();
