@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    checkContainerTranslation();
+    checkActionVisibility();
+    checkActionPosition();
+    checkArcPosition();
+
     var scrolltop = sessionStorage.scrollTop;
 
     if (sessionStorage.scrollTop != "undefined") {
@@ -52,12 +57,8 @@ $(document).ready(function () {
         this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
     };
 
-    window.addEventListener("load", checkContainerTranslation);
-    window.addEventListener("load", checkActionVisibility);
     window.addEventListener("scroll", checkActionVisibility);
-    window.addEventListener("load", checkActionPosition);
     window.addEventListener("scroll", checkActionPosition);
-    window.addEventListener("load", checkArcPosition);
     window.addEventListener("scroll", checkArcPosition);
 
     function checkContainerTranslation() {
