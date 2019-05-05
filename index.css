@@ -385,14 +385,14 @@ h1,
 #landing p {
     text-align: center;
     width: 100%;
-    margin-top: 80px;
     font-weight: 300;
 }
 
 #landing p {
+    margin-top: 80px;
     font-size: 2em;
     color: white;
-    height: 100px;
+    height: 162px;
     transition: color 1s ease, text-shadow 1s ease;
 }
 

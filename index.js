@@ -85,13 +85,9 @@ $(document).ready(function () {
         if ($(document).scrollTop() >= $(document).height() / 2) {
             $(".action").css("visibility", "visible");
             $(".container").css("margin-bottom", $("#closingImage").height() + "px");
-            $(".container").css("transform", "");
-            $(".container").css("margin-top", containerTranslateAmount + "px");
             $("footer").css("height", window.innerHeight - $("#closingImage").height() - $("header").height() + "px");
         } else {
             $(".action").css("visibility", "hidden");
-            $(".container").css("transform", "translateY(" + containerTranslateAmount + "px)");
-            $(".container").css("margin-top", 0);
         }
     }
 
@@ -142,7 +138,6 @@ $(document).ready(function () {
     function checkArcPosition() {
         if ($(".functionalities")[0].getBoundingClientRect().top < 100 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().top + 100 + $(".functionality:nth-child(1) .text").height() + 196 > window.innerHeight) {
             animationState = getHighlightAnimationState();
-            console.log(animationState, status);
             if (animationState == 1 && status == true) {
                 $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
                 $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
@@ -382,18 +377,18 @@ $(document).ready(function () {
     }
 
     function resetAnimation() {
-        if (animationState == 1 && clickScroll == 0 && $(".container")[0].getBoundingClientRect().top + 12 < $("header").height()) {
+        if (animationState == 1 && clickScroll == 0 && $(".container")[0].getBoundingClientRect().top < $("header").height()) {
             animationState = 0;
             clickScroll = 0;
+
             $(".container").css("box-shadow", "0px -20px 50px 20px #ffffff, 0 20px 50px -20px #ffffff");
             $(".see").css("color", "#ffffff");
             $(".see").removeAttr("id");
             $("#landingImage").css("filter", "brightness(.5)");
             $("h1, #landing p").css("color", "white");
             $("h1, #landing p").css("text-shadow", "none");
-            $("#landing p").html("Welcome to AI 4 SEO!<br>Use our AI-driven tool to boost your ranking.").animate({ "opacity": 1, "font-size": "2em" }, 200);
+            $("#landing p").html("Welcome to AI 4 SEO!<br>Use our AI-driven tool to boost your ranking.").animate({ "opacity": 1, "font-size": "2em" }, 1);
             $("#landing p").css({ "text-transform": "none", "font-family": "'Roboto', sans-serif", "font-weight": "300" });
-
 
             window.addEventListener("scroll", changeShade);
         }
