@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
+    const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
+
     checkContainerTranslation();
     checkLandingVisibility();
     checkActionVisibility();
@@ -16,20 +19,12 @@ $(document).ready(function () {
         sessionStorage.scrollTop = $(this).scrollTop();
     });
 
-    $("container").on("transitionend", function () {
-        $(this).style.transform = '';
-    }, false);
-
     $(".action").css("height", $("#closingImage").height() - 100 + "px");
 
-    var changeSpeedPoint = 0;
     var animationState = 0;
-    var clickScroll = 0;
-    var initial = true;
-    var footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
+    var landingAnimationState = 0;
     var containerTranslateAmount;
     var highlightAnimationState = 0;
-    var animationState = 0;
     var status = true;
 
     $.fn.moveIt = function () {
@@ -322,78 +317,49 @@ $(document).ready(function () {
     function changeSpeed() {
         $('[data-scroll-speed]').moveIt();
     }
+
     setTimeout(function () {
         window.addEventListener("scroll", checkSpeedLimits);
         checkSpeedLimits();
     }, 100)
 
-    /* changeSpeed(); */
-
     $(".see").click(function () {
-
         animatedHowScroll();
     })
 
     $("li a").first().click(function () {
-
         howScroll();
     });
 
-    $("li a").eq(1).click(function () {
-
-        productScroll();
-    });
-
-    window.addEventListener("scroll", removeButton);
-    window.addEventListener("scroll", addButton);
+    window.addEventListener("scroll", toggleButton);
     window.addEventListener("scroll", resetAnimation);
-    window.addEventListener("scroll", stickHero);
-    window.addEventListener("scroll", releaseHero);
-    window.addEventListener("scroll", changeShadeNoAnimation);
+    window.addEventListener("scroll", toggleHero);
+    window.addEventListener("scroll", changeShade);
 
 
-    function removeButton() {
-
-        if ($(window).scrollTop() > 0 && clickScroll == 0) {
+    function toggleButton() {
+        if ($(window).scrollTop() > 0) {
             $(".see").prop("disabled", true);
-            $(".see").animate({ opacity: 0 }, 500)
-            window.removeEventListener("scroll", removeButton);
-            window.addEventListener("scroll", addButton);
-
-        }
-    }
-
-    function addButton() {
-
-        if ($(window).scrollTop() == 0 && clickScroll == 0) {
-            $(".see").prop("disabled", false);
-            $(".see").animate({ opacity: 1 }, 500)
-            window.removeEventListener("scroll", addButton);
-            window.addEventListener("scroll", removeButton);
-        }
-    }
-
-    function changeShadeNoAnimation() {
-        if ($("#hero")[0].getBoundingClientRect().top >= $("header").height() && animationState == 0) {
-            $("header").css("box-shadow", "0px 20px 50px -20px #ffffff");
-        } else if ($(".technologyStack")[0].getBoundingClientRect().bottom - 1 <= $("header").height()) {
-            $("header").css("box-shadow", "0px 20px 50px -20px #ffffff");
+            $(".see").css("opacity", 0);
+            $(".see").css("pointer-events", "none");
         } else {
-            $("header").css("box-shadow", "0px 20px 50px -20px #000000");
+            $(".see").prop("disabled", false);
+            $(".see").css("opacity", 1);
+            $(".see").css("pointer-events", "all");
         }
     }
 
     function changeShade() {
-        if ($("#hero")[0].getBoundingClientRect().top >= $("header").height()) {
+        if (landingAnimationState == 1 || $("#hero")[0].getBoundingClientRect().top < $("header").height() && $(".technologyStack")[0].getBoundingClientRect().bottom - 1 > $("header").height()) {
+            $("header").css("box-shadow", "0px 20px 50px -20px #000000");
+        } else {
             $("header").css("box-shadow", "0px 20px 50px -20px #ffffff");
-            window.removeEventListener("scroll", changeShade);
         }
     }
 
     function resetAnimation() {
-        if (animationState == 1 && clickScroll == 0 && $(".container")[0].getBoundingClientRect().top < $("header").height()) {
-            animationState = 0;
-            clickScroll = 0;
+        if (landingAnimationState == 1 && $(".container")[0].getBoundingClientRect().top < $("header").height()) {
+            landingAnimationState = 0;
 
             $(".container").css("box-shadow", "0px -20px 50px 20px #ffffff, 0 20px 50px -20px #ffffff");
             $(".see").css("color", "#ffffff");
@@ -403,47 +369,28 @@ $(document).ready(function () {
             $("h1, #landing p").css("text-shadow", "none");
             $("#landing p").html("Welcome to AI 4 SEO!<br>Use our AI-driven tool to boost your ranking.").animate({ "opacity": 1, "font-size": "2em" }, 1);
             $("#landing p").css({ "text-transform": "none", "font-family": "'Roboto', sans-serif", "font-weight": "300" });
-
-            window.addEventListener("scroll", changeShade);
         }
     }
 
-    function stickHero() {
-        if ($("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 30 <= 0) {
+    function toggleHero() {
+        if ($(window).scrollTop() >= stickyPoint) {
             containerTranslateAmount = parseInt($(".container").css('transform').split(',')[5]);
             $(".container").removeAttr("data-scroll-speed");
 
-            changeSpeedPoint = $(".see")[0].getBoundingClientRect().top;
-
             changeSpeed();
-
-            window.removeEventListener("scroll", stickHero);
-            window.addEventListener("scroll", releaseHero);
-        }
-    }
-
-    function releaseHero() {
-
-        if ($(".start")[0].getBoundingClientRect().top >= changeSpeedPoint && changeSpeedPoint != 0) {
-
+        } else {
             $(".container").attr("data-scroll-speed", "1");
 
             changeSpeed();
-            window.addEventListener("scroll", stickHero);
-            window.removeEventListener("scroll", releaseHero);
         }
     }
 
     function animatedHowScroll() {
 
-        clickScroll = 1;
-
         var scrollTop = $("#hero")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 58;
 
         $('html,body').animate({ scrollTop: scrollTop },
             Math.abs(window.scrollY - $("#hero").offset().top) * 1);
-        $(".see").prop("disabled", true);
-        $(".see").animate({ opacity: 0 }, 500)
 
         setTimeout(function () {
             var top = window.innerHeight - $("#hero").height() + 16;
@@ -451,26 +398,12 @@ $(document).ready(function () {
                 top: top,
                 behavior: 'smooth'
             });
-            animationState = 0;
-            clickScroll = 0;
-            $("#landingImage").css("filter", "brightness(.5)");
-            $("h1, #landing p").css("color", "white");
-            $("h1, #landing p").css("text-shadow", "none");
-            $("#landing p").animate({ 'opacity': 0 }, 500, function () {
-                $(this).html("Welcome to AI 4 SEO!<br>Use our AI-driven tool to boost your ranking.").animate({ "opacity": 1, "font-size": "2em" }, 200);
-                $(this).css({ "text-transform": "none", "font-family": "'Roboto', sans-serif", "font-weight": "300" });
-            });
-            $(this).prop("disabled", true);
-            $(".see").removeAttr("id");
-            setTimeout(function () {
-                $(".see").prop("disabled", false);
-            }, 600)
         }, 1000)
     }
 
     function howScroll() {
         var top;
-        if ($(window).scrollTop() > changeSpeedPoint) {
+        if ($(window).scrollTop() > stickyPoint) {
             top = $("#hero")[0].getBoundingClientRect().top - document.body.getBoundingClientRect().top - window.innerHeight + $("header").height() + 176 + $("#hero").height();
         } else {
             top = $("#hero")[0].getBoundingClientRect().top - document.body.getBoundingClientRect().top - window.innerHeight + $("header").height() + 176 + $("#hero").height() + $(".see")[0].getBoundingClientRect().top - $(".container")[0].getBoundingClientRect().top;
@@ -481,32 +414,15 @@ $(document).ready(function () {
         });
     }
 
-    function productScroll() {
-        var top;
-        if ($(window).scrollTop() > changeSpeedPoint) {
-            top = $(".product")[0].getBoundingClientRect().top - document.body.getBoundingClientRect().top + 105;
-
-        } else if (initial) {
-            top = $(".product")[0].getBoundingClientRect().top - document.body.getBoundingClientRect().top + 45 + $(".see")[0].getBoundingClientRect().top - $(".container")[0].getBoundingClientRect().top;
-            initial = false;
-        } else {
-            top = $(".product")[0].getBoundingClientRect().top - document.body.getBoundingClientRect().top + 120 + $(".see")[0].getBoundingClientRect().top - $(".container")[0].getBoundingClientRect().top;
-        }
-        window.scrollTo({
-            top: top,
-            behavior: 'smooth'
-        });
-    }
-
     $(".see").on({
         mouseenter: function (e) {
-            if (animationState == 1 | clickScroll == 1) {
+            if (landingAnimationState == 1) {
                 return;
             }
             else {
-                animationState = 1;
-                $(".container").css("box-shadow", "0px -30px 50px -5px #000000");
+                landingAnimationState = 1;
                 $("header").css("box-shadow", "0px 20px 50px -20px #000000");
+                $(".container").css("box-shadow", "0px -30px 50px -5px #000000");
                 $("#landingImage").css("filter", "brightness(1.5) blur(5px)");
                 $("h1, #landing p").css({ "color": "#0BB1D3", "text-shadow": "1px 1px 1px rgba(11,117,211,1),1px 2px 1px rgba(11,117,211,1),1px 3px 1px rgba(11,117,211,1),1px 4px 1px rgba(11,117,211,1),1px 5px 1px rgba(11,117,211,1),1px 6px 1px rgba(11,117,211,1),1px 7px 1px rgba(11,117,211,1),1px 8px 1px rgba(11,117,211,1),1px 9px 1px rgba(11,117,211,1),1px 10px 1px rgba(11,117,211,1),1px 18px 6px rgba(16,16,16,0.4),1px 22px 10px rgba(16,16,16,0.2),1px 25px 35px rgba(16,16,16,0.2),1px 30px 60px rgba(16,16,16,0.4)" });
                 $("#landing p").animate({ 'opacity': 0 }, 100, function () {
@@ -522,13 +438,13 @@ $(document).ready(function () {
             }
         },
         mouseleave: function (e) {
-            if (animationState == 0 | clickScroll == 1) {
+            if (landingAnimationState == 0) {
                 return;
             }
             else {
-                animationState = 0;
-                $(".container").css("box-shadow", "0px -20px 50px 20px #ffffff, 0 20px 50px -20px #ffffff");
+                landingAnimationState = 0;
                 $("header").css("box-shadow", "0px 20px 50px -20px #ffffff");
+                $(".container").css("box-shadow", "0px -20px 50px 20px #ffffff, 0 20px 50px -20px #ffffff");
                 $("#landingImage").css("filter", "brightness(.5)");
                 $("h1, #landing p").css("color", "white");
                 $("h1, #landing p").css("text-shadow", "none");
