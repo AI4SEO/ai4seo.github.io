@@ -1,17 +1,13 @@
 $(document).ready(function () {
-
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
 
-    var scrolltop = sessionStorage.scrollTop;
+    console.log(footerChangePosition);
 
-    if (sessionStorage.scrollTop != "undefined") {
-        $(window).scrollTop(sessionStorage.scrollTop);
-    }
-
-    $(window).scroll(function () {
-        sessionStorage.scrollTop = $(this).scrollTop();
-    });
+    checkLandingVisibility();
+    checkActionVisibility();
+    checkActionPosition();
+    checkArcPosition();
 
     var animationState = 0;
     var landingAnimationState = 0;
@@ -448,9 +444,4 @@ $(document).ready(function () {
             }
         }
     })
-
-    checkLandingVisibility();
-    checkActionVisibility();
-    checkActionPosition();
-    checkArcPosition();
 })
