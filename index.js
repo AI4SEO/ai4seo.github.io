@@ -1,6 +1,6 @@
 $(document).ready(function () {
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
-    const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
+    const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 33;
 
     checkLandingVisibility();
     checkActionVisibility();
