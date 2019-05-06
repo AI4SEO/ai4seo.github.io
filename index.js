@@ -41,7 +41,7 @@ $(document).ready(function () {
 
     window.addEventListener("scroll", checkLandingVisibility);
     window.addEventListener("scroll", checkActionVisibility);
-    window.addEventListener("scroll load", checkActionPosition);
+    window.addEventListener("scroll", checkActionPosition);
     window.addEventListener("scroll", checkArcPosition);
 
     function checkLandingVisibility() {
