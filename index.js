@@ -1,9 +1,4 @@
 $(document).ready(function () {
-    (function () {
-        $(".action").css("height", $("#closingImage").height() - 100 + "px");
-        $("footer").css("height", window.innerHeight - $("#closingImage").height() - $("header").height() + "px");
-    })();
-
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
 
@@ -58,6 +53,7 @@ $(document).ready(function () {
     }
 
     function checkActionPosition() {
+        $(".action").css("height", $("#closingImage").height() - 100 + "px");
         if ($(".container")[0].getBoundingClientRect().bottom - 100 <= footerChangePosition) {
             $(".container").css("margin-bottom", 0);
             $(".action").css("position", "relative");
@@ -77,6 +73,7 @@ $(document).ready(function () {
             $(".container").css("margin-bottom", $("#closingImage").height() + "px");
             $(".container").css("transform", "");
             $(".container").css("margin-top", containerTranslateAmount + "px");
+            $("footer").css("height", window.innerHeight - $("#closingImage").height() - $("header").height() + "px");
         } else {
             $(".action").css("visibility", "hidden");
             $(".container").css("transform", "translateY(" + containerTranslateAmount + "px)");
