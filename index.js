@@ -1,6 +1,8 @@
 $(document).ready(function () {
-    $(".action").css("height", $("#closingImage").height() - 100 + "px");
-    $("footer").css("height", window.innerHeight - $("#closingImage").height() - $("header").height() + "px");
+    (function () {
+        $(".action").css("height", $("#closingImage").height() - 100 + "px");
+        $("footer").css("height", window.innerHeight - $("#closingImage").height() - $("header").height() + "px");
+    });
 
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
