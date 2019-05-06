@@ -3,11 +3,6 @@ $(document).ready(function () {
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
 
-    checkLandingVisibility();
-    checkActionVisibility();
-    checkActionPosition();
-    checkArcPosition();
-
     var scrolltop = sessionStorage.scrollTop;
 
     if (sessionStorage.scrollTop != "undefined") {
@@ -453,4 +448,9 @@ $(document).ready(function () {
             }
         }
     })
+
+    checkLandingVisibility();
+    checkActionVisibility();
+    checkActionPosition();
+    checkArcPosition();
 })
