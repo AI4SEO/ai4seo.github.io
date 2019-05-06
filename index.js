@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
-    const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
-
     var animationState = 0;
     var landingAnimationState = 0;
     var containerTranslateAmount;
@@ -437,6 +434,9 @@ $(document).ready(function () {
             }
         }
     })
+
+    const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
+    const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
 
     checkLandingVisibility();
     checkActionVisibility();
