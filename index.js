@@ -3,7 +3,6 @@ $(document).ready(function () {
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
 
-    checkContainerTranslation();
     checkLandingVisibility();
     checkActionVisibility();
     checkActionPosition();
@@ -18,8 +17,6 @@ $(document).ready(function () {
     $(window).scroll(function () {
         sessionStorage.scrollTop = $(this).scrollTop();
     });
-
-    $(".action").css("height", $("#closingImage").height() - 100 + "px");
 
     var animationState = 0;
     var landingAnimationState = 0;
@@ -58,12 +55,6 @@ $(document).ready(function () {
     window.addEventListener("scroll", checkActionPosition);
     window.addEventListener("scroll", checkArcPosition);
 
-    function checkContainerTranslation() {
-        if (scrolltop > $(document).height() / 2) {
-            $(".container").css("transform", "");
-        }
-    }
-
     function checkLandingVisibility() {
         if ($(document).scrollTop() >= $("#landing").height() + 100) {
             $("#landing").css("visibility", "hidden");
@@ -73,6 +64,7 @@ $(document).ready(function () {
     }
 
     function checkActionPosition() {
+        $(".action").css("height", $("#closingImage").height() - 100 + "px");
         if ($(".container")[0].getBoundingClientRect().bottom - 100 < footerChangePosition) {
             $(".container").css("margin-bottom", 0);
             $(".action").css("position", "relative");
