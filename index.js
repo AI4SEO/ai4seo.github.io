@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     checkContainerTranslation();
+    checkLandingVisibility();
     checkActionVisibility();
     checkActionPosition();
     checkArcPosition();
@@ -57,6 +58,7 @@ $(document).ready(function () {
         this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
     };
 
+    window.addEventListener("scroll", checkLandingVisibility);
     window.addEventListener("scroll", checkActionVisibility);
     window.addEventListener("scroll", checkActionPosition);
     window.addEventListener("scroll", checkArcPosition);
@@ -64,6 +66,14 @@ $(document).ready(function () {
     function checkContainerTranslation() {
         if (scrolltop > $(document).height() / 2) {
             $(".container").css("transform", "");
+        }
+    }
+
+    function checkLandingVisibility() {
+        if ($(document).scrollTop() >= $("#landing").height() + 100) {
+            $("#landing").css("visibility", "hidden");
+        } else {
+            $("#landing").css("visibility", "visible");
         }
     }
 
