@@ -544,6 +544,7 @@ h1,
 }
 
 footer {
+    min-height: 190px;
     background-color: #f1f3f4;
 }
 
@@ -596,6 +597,7 @@ footer {
 }
 
 .lower {
+    min-height: 42px;
     height: calc(100% - 144px);
     padding: 30px 32px;
     display: flex;
