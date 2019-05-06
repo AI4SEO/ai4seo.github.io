@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     function checkActionPosition() {
         $(".action").css("height", $("#closingImage").height() - 100 + "px");
-        if ($(".container")[0].getBoundingClientRect().bottom - 100 < footerChangePosition) {
+        if ($(".container")[0].getBoundingClientRect().bottom - 100 <= footerChangePosition) {
             $(".container").css("margin-bottom", 0);
             $(".action").css("position", "relative");
             $(".action").css("z-index", "0");
@@ -366,7 +366,7 @@ $(document).ready(function () {
 
     function toggleHero() {
         if ($(window).scrollTop() >= stickyPoint) {
-            containerTranslateAmount = parseInt($(".container").css('transform').split(',')[5]);
+            containerTranslateAmount = 0 - stickyPoint;
             $(".container").removeAttr("data-scroll-speed");
 
             changeSpeed();
