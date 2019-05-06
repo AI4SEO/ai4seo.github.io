@@ -2,8 +2,6 @@ $(document).ready(function () {
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 36;
 
-    console.log(footerChangePosition);
-
     checkLandingVisibility();
     checkActionVisibility();
     checkActionPosition();
@@ -43,7 +41,7 @@ $(document).ready(function () {
 
     window.addEventListener("scroll", checkLandingVisibility);
     window.addEventListener("scroll", checkActionVisibility);
-    window.addEventListener("scroll", checkActionPosition);
+    window.addEventListener("scroll load", checkActionPosition);
     window.addEventListener("scroll", checkArcPosition);
 
     function checkLandingVisibility() {
