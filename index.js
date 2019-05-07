@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    const marginLeft = $(".text").width() + 170;
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 33;
 
@@ -237,7 +238,6 @@ $(document).ready(function () {
             }
             $(".container").css("transform", "");
             $(".container").css("margin-top", containerTranslateAmount + "px");
-            var marginLeft = $(".text").width() + 170;
             $(".deviceAnimation").show();
             $(".lineBottom").css("position", "fixed");
             $(".lineBottom").css("top", "578px");
@@ -250,7 +250,7 @@ $(document).ready(function () {
             $(".lineRight").css("margin-top", "0");
             $(".arcDevices").css("position", "fixed");
             $(".arcDevices").css("top", "450px");
-            $(".arcDevices").css("margin-left", marginLeft + "px");
+            $(".arcDevices").css("right", 394 + "px");
             $(".arcDevices").css("margin-top", "0");
             $(".arcService").css("position", "fixed");
             $(".arcService").css("top", "555px");
@@ -274,14 +274,15 @@ $(document).ready(function () {
             $(".arcTool").remove();
             positionArc()
             $(".deviceAnimation").hide();
-            $(".arcDevices").css("position", "relative");
-            $(".arcDevices").css("top", "0");
-            $(".arcDevices").css("margin-left", "100px");
-            $(".arcDevices").css("margin-top", "350px");
-            $(".arcService").css("position", "relative");
-            $(".arcService").css("top", "0");
-            $(".arcService").css("margin-left", "200px");
-            $(".arcService").css("margin-top", "455px");
+            $(".arcDevices").css("position", "absulte");
+            $(".arcDevices").css("top", "350px");
+            $(".arcDevices").css("right", 394 + "px");
+            $(".arcDevices").css("margin-left", 0);
+            $(".arcDevices").css("margin-top", 0);
+            $(".arcService").css("position", "absolute");
+            $(".arcService").css("top", "455px");
+            $(".arcService").css("right", 94 + "px");
+            $(".arcService").css("margin-top", 0);
         }
     }
 
