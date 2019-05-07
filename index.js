@@ -125,14 +125,39 @@ $(document).ready(function () {
         return highlightAnimationState;
     }
 
+    function removeArc() {
+        $(".arcDevices").remove();
+        $(".arcService").remove();
+        $(".arcTool").remove();
+    }
+
+    function removeInterface() {
+        $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+        setTimeout(function () {
+            $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+        }, 100)
+        setTimeout(function () {
+            $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+        }, 200)
+        setTimeout(function () {
+            $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+        }, 300)
+    }
+
+    function hideInterface() {
+        setTimeout(function () {
+            $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+            $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
+            $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
+            $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+        }, 300)
+    }
+
     function checkArcPosition() {
         if ($(".functionalities")[0].getBoundingClientRect().top < 100 && $(".functionality:nth-child(4)")[0].getBoundingClientRect().top + 100 + $(".functionality:nth-child(1) .text").height() + 196 > window.innerHeight) {
             animationState = getHighlightAnimationState();
             if (animationState == 1 && status == true) {
-                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+                hideInterface();
                 $(".arcService").remove();
                 $(".arcTool").remove();
                 $(".functionality:nth-child(1) .text").after("<img class='arcTool' style='transform:scale(1.5)' src='ToolHighlighted.svg'>");
@@ -141,23 +166,15 @@ $(document).ready(function () {
                 }, 300)
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
             } else if (animationState == 2 && status == true) {
-                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
+                hideInterface();
                 $(".arcService").remove();
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' style='transform:scale(1.5)' src='ServiceHighlighted.svg'>");
                 setTimeout(function () {
                     $(".arcService").css("transform", "scale(1)");
                 }, 300)
             } else if (animationState == 3 && status == true) {
-                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".arcTool").remove();
-                $(".arcDevices").remove();
-                $(".arcService").remove();
+                hideInterface();
+                removeArc();
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' style='opacity:0' src='ServiceHighlightedAnimation.svg'>");
                 setTimeout(function () {
                     $(".arcService").css("opacity", "1");
@@ -165,29 +182,17 @@ $(document).ready(function () {
                 $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='ToolHighlighted.svg'>");
                 $(".functionality:nth-child(1) .text").after("<img class='arcDevices' src='Devices.svg'>");
             } else if (animationState == 4 && status == true) {
-                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
-                $(".arcTool").remove();
-                $(".arcService").remove();
-                $(".arcDevices").remove();
+                hideInterface();
+                removeArc();
                 $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='transform:scale(1.5)' src='DevicesHighlighted.svg'>");
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' src='Service.svg'>");
                 $(".functionality:nth-child(1) .text").after("<img class='arcTool' src='Tool.svg'>");
+                removeInterface();
                 setTimeout(function () {
-                    $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
-                }, 100)
-                setTimeout(function () {
-                    $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
-                }, 200)
-                setTimeout(function () {
-                    $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
                     $(".arcDevices").css("transform", "scale(1)");
                 }, 300)
-                setTimeout(function () {
-                }, 600)
             } else if (animationState == 5 && status == true) {
-                $(".arcTool").remove();
-                $(".arcService").remove();
-                $(".arcDevices").remove();
+                removeArc();
                 $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='opacity:0' src='DevicesHighlighted.svg'>");
                 $(".functionality:nth-child(1) .text").after("<img class='arcService' style='opacity:0' src='Service.svg'>");
                 $(".functionality:nth-child(1) .text").after("<img class='arcTool' style='opacity:0' src='Tool.svg'>");
@@ -210,23 +215,14 @@ $(document).ready(function () {
                 if ($(".arcTool").attr("src") == "ToolHighlighted.svg" && $(".arcService").attr("src") == "ServiceHighlightedAnimation.svg" && $(".arcDevices").attr("src") == "DevicesHighlightedEnd.svg") {
                     return;
                 }
-                $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
+                removeInterface();
                 setTimeout(function () {
-                    $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
-                }, 100)
-                setTimeout(function () {
-                    $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
-                }, 200)
-                setTimeout(function () {
-                    $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
                     $(".arcDevices").css("opacity", 0);
                     $(".arcService").css("opacity", 0);
                     $(".arcTool").css("opacity", 0);
                 }, 300)
                 setTimeout(function () {
-                    $(".arcTool").remove();
-                    $(".arcService").remove();
-                    $(".arcDevices").remove();
+                    removeArc();
                     $(".functionality:nth-child(1) .text").after("<img class='arcDevices' style='opacity:0' src='DevicesHighlightedEnd.svg'>");
                     $(".functionality:nth-child(1) .text").after("<img class='arcService' style='opacity:0' src='ServiceHighlightedAnimation.svg'>");
                     $(".functionality:nth-child(1) .text").after("<img class='arcTool' style='opacity:0' src='ToolHighlighted.svg'>");
@@ -261,16 +257,11 @@ $(document).ready(function () {
             $(".arcTool").css("margin-top", "0");
         } else {
             highlightAnimationState = 0;
-            $(".bars").css({ "opacity": 0, "transform": "scale(0.5)" });
-            $(".stacks").css({ "opacity": 0, "transform": "scale(0.5)" });
-            $(".cylinders").css({ "opacity": 0, "transform": "scale(0.5)" });
-            $(".pie").css({ "opacity": 0, "transform": "scale(0.5)" });
             $(".lineBottom").remove();
             $(".lineLeft").remove();
             $(".lineRight").remove();
-            $(".arcDevices").remove();
-            $(".arcService").remove();
-            $(".arcTool").remove();
+            hideInterface();
+            removeArc();
             positionArc()
             $(".deviceAnimation").hide();
             $(".arcDevices").css("position", "absulte");
@@ -357,11 +348,9 @@ $(document).ready(function () {
         if ($(window).scrollTop() >= stickyPoint) {
             containerTranslateAmount = 0 - stickyPoint;
             $(".container").removeAttr("data-scroll-speed");
-
             changeSpeed();
         } else {
             $(".container").attr("data-scroll-speed", "1");
-
             changeSpeed();
         }
     }
