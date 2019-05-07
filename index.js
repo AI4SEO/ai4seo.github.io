@@ -368,7 +368,7 @@ $(document).ready(function () {
 
     function animatedHowScroll() {
 
-        var scrollTop = $("#hero")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 58;
+        var scrollTop = $("#hero")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 66;
 
         $('html,body').animate({ scrollTop: scrollTop },
             Math.abs(window.scrollY - $("#hero").offset().top) * 1);
