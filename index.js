@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    const marginLeft = $(".text").width() + 170;
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
     const stickyPoint = $("#hero")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 33;
 
