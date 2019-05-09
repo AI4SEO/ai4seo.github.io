@@ -779,6 +779,45 @@ input[type='file'] {
     cursor: pointer;
 }
 
+#home {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+#left {
+    margin-right: 10px;
+    transition: right .5s ease-in-out, opacity .5s ease-in-out;
+    position: absolute;
+    right: 110px;
+}
+
+p#hook {
+    font-size: 20px;
+    height: max-content;
+    margin-top: 30px;
+}
+
+#landing .twitter,
+#landing .facebook,
+#landing .instagram,
+#landing .reddit {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+}
+
+#landing .twitter:hover,
+#landing .facebook:hover,
+#landing .instagram:hover,
+#landing .reddit:hover {
+    transform: scale(1.5);
+}
+
 label.error {
     font-size: 12px;
     position: absolute;

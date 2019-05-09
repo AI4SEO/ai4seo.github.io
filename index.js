@@ -21,7 +21,18 @@ $(document).ready(function () {
         }
     }
 
-    if (pathname == "index.html") {
+    if (pathname == "thankyou.html") {
+        $("#home").hover(function () {
+            $("#left").css("right", "120px");
+            $("#left").css("opacity", ".75");
+            $("#home").css("opacity", ".75");
+        }, function () {
+            $("#left").css("right", "110px");
+            $("#left").css("opacity", 1);
+            $("#home").css("opacity", 1);
+        });
+        return;
+    } else if (pathname == "index.html") {
 
         stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 33;
         landingText = "Welcome to AI 4 SEO!<br>Use our AI-driven tool to boost your ranking.";
