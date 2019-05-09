@@ -744,14 +744,14 @@ input[type='file'] {
     -webkit-mask: url(Github.svg) no-repeat center;
     mask: url(Github.svg) no-repeat center;
     -webkit-mask-size: 65px 65px;
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     cursor: pointer;
 }
 
 .fz {
-    width: 51px;
-    height: 51px;
+    width: 55px;
+    height: 55px;
     transition: box-shadow .8s ease-in-out;
     cursor: pointer;
     border-radius: 50px;
@@ -762,7 +762,7 @@ input[type='file'] {
 }
 
 #send {
-    width: 260px;
+    width: 258px;
     align-self: center;
     font-size: 0.8em;
     outline: 0;
