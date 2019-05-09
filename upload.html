@@ -32,6 +32,8 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
     <script src="index.js"></script>
 </head>
@@ -64,56 +66,53 @@
             <h2 class="option">Choose an option.</h2>
         </section>
         <section class="choices">
-            <form>
+            <h3>Provide an URL in order for us to crawl your code (*)</h3>
+            <p>With this option you will have access to a SEO analysis of your website and embeddable code snippets for
+                optimizing your code.</p>
+            <form id="url" name="url" method="POST" action="" validate>
                 <div class="group">
-                    <input type="text" required>
+                    <input type="url" required>
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label>Your Url</label>
-                </div>
-                <div class="gitoption">
-                    <div class="preIcon git"></div>
-                    <div class="group">
-                        <input type="text" class="gitinput" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Paste GitHub Repository Url</label>
-                    </div>
-                </div>
-                <div class="filezillaoption">
-                    <object class="preIcon fz" type="image/svg+xml" data="FileZilla.svg"></object>
-                    <div class="group">
-                        <input type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Username</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Password</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Host</label>
-                    </div>
-                    <div class="group">
-                        <input type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Port</label>
-                    </div>
+                    <label>Paste Your URL</label>
                 </div>
             </form>
         </section>
-        <section class="choices"></section>
-        <section class="choices"></section>
-        <section class="choices"></section>
-        <section class="choices"></section>
-        <section class="choices"></section>
+        <section class="choices">
+            <h3>Provide a file for an enhanced experience (optional)</h3>
+            <p>With this option you will have access to optimizing all encountered SEO objectives of your choice and
+                downloading the optimized file.
+            </p>
+            <input id="files" type="file" class="dragNdrop" accept=".js,.html,.css,.scss,.svg,.png,.jpg,.zip" ondrop="gtag('event', 'Abgelegte Dateien', {
+                    'event_category': 'User',
+                    'event_label': 'Drop File Upload'
+                  });">
+            <label for="files" id="upload">
+                <div class="material-icons">cloud_upload</div>
+                <p id="drag">Drag & Drop</p>
+            </label>
+            <h3>Make a choice to provide access for the unlimited experience (optional)</h3>
+            <p>With this option you will have access to choosing between all SEO objectives encountered in the
+                analysis to be optimized directly to your files alongside SEO content strategies.
+            </p>
+            <div class="access">
+                <div class="git" onclick="gtag('event', 'Klicks auf Github', {
+                    'event_category': 'User',
+                    'event_label': 'Provide Github Access'
+                  });"></div>
+                <p>|</p>
+                <img class="fz" src="FileZilla.svg" onclick="gtag('event', 'Klicks auf FileZilla', {
+                    'event_category': 'User',
+                    'event_label': 'Provide FileZilla Access'
+                  });">
+            </div>
+        </section>
+        <section class="choices">
+            <input id="send" type="submit" form="url" value="send" onsubmit="gtag('event', 'Klicks auf Senden', {
+                    'event_category': 'User',
+                    'event_label': 'Send Url Upload'
+                  });" />
+        </section>
     </div>
     <footer>
         <div class="social">

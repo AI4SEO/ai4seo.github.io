@@ -262,25 +262,84 @@ $(document).ready(function () {
             }
         }
     } else {
+
+        var gitClick = false;
+        var fzClick = false;
         stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
         landingText = "Use AI4SEO<br>for free until your ranking improves.";
 
-        $(".gitinput").on("focus", function () {
-            $(".preIcon").css("background-color", "#0BB1D3");
-        });
-        $(".gitinput").on("blur", function () {
-            $(".preIcon").css("background-color", "#757575");
+        $("#url").on("submit", function () {
+            gtag('event', 'Klicks auf Senden', {
+                'event_category': 'User',
+                'event_label': $("#url input").val()
+            });
+        })
+
+        $("#url input").on("blur", function () {
+            if ($("label.error").length) {
+                $("#url label").css("top", "-20px");
+                $("#url label").css("font-size", "14px");
+                $("label.error").css("top", "50px");
+                $("label.error").css("font-size", "12px");
+            }
+        })
+
+        $(".fz").hover(function () {
+            $(".fz").css("transform", "scale(1.05)");
+        }, function () {
+            if (fzClick == true) {
+                return;
+            } else {
+                console.log(fzClick);
+                $(".fz").css("transform", "scale(1)");
+            }
+        })
+
+        $(".fz").on("click", function () {
+            fzClick = true;
+            $(".fz").fadeTo("slow", 0.5);
+        })
+
+        $(".git").hover(function () {
+            $(".git").css("background-color", "#0BB1D3");
+        }, function () {
+            if (gitClick == true) {
+                return;
+            } else {
+                $(".git").css("background-color", "#757575");
+            }
+        })
+
+        $(".git").on("click", function () {
+            gitClick = true;
+        })
+
+        $(".dragNdrop").on("dragover", function () {
+            $("#drag, #upload div").css("color", "#0BB1D3");
+        })
+
+        $(".dragNdrop").on("dragleave", function () {
+            $("#drag, #upload div").css("color", "#888e95");
+        })
+
+        $("#files").on("change", function () {
+            console.log("change");
+            $("#drag").css("font-size", "12px");
+            $("#drag").html(this.value.replace(/.*[\/\\]/, ''));
         });
 
-        $(".filezillaoption input").on("focus", function () {
-            var sheet = window.document.styleSheets[0];
-            var cssRulesNum = sheet.cssRules.length;
-            sheet.insertRule('.zillabackground { fill: #0BB1D3 !important; }', cssRulesNum);
-        });
-        $(".filezillaoption input").on("blur", function () {
-            var sheet = window.document.styleSheets[0];
-            var cssRulesNum = sheet.cssRules.length;
-            sheet.insertRule('.zillabackground { fill: #757575 !important; }', cssRulesNum);
+        $("#url").validate({
+            focusInvalid: false,
+            invalidHandler: function (form, validator) {
+
+                if (!validator.numberOfInvalids())
+                    return;
+
+                $('html, body').animate({
+                    scrollTop: $(validator.errorList[0].element).offset().top - 300
+                }, 1500);
+
+            }
         });
     }
 

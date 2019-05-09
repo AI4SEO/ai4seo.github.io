@@ -456,12 +456,12 @@ h1,
     transform: scale(1.05) translateX(-47.5%);
 }
 
-.start:hover {
+.start:hover,
+#send:hover {
     box-shadow: 0px 0px 25px 5px rgba(11, 177, 211, 1);
     background-image: linear-gradient(#0BB1D3, #0BB1D3);
     transition: box-shadow 1s, background-color 1s ease;
     animation-play-state: paused;
-
 }
 
 #uploadLandingImage,
@@ -639,51 +639,157 @@ footer {
 
 .choices {
     display: flex;
-    align-items: center;
     padding: 0px 100px 40px;
+    position: relative;
 }
 
-.gitoption {
+.choices h3 {
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 24px;
+    width: 55%;
+}
+
+.choices p {
+    margin-bottom: 40px;
+    width: 50%;
+}
+
+.dragNdrop {
+    margin: 40px 0 80px;
+    align-self: center;
+    width: 700px;
+    height: 300px;
+    box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .5);
     display: flex;
-    width: 495px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-bottom: 0;
 }
 
-.gitoption .group {
-    margin-left: 0;
+input[type='file'] {
+    color: transparent;
+}
+
+#drag {
+    margin-bottom: 0;
+    font-size: 24px;
+    width: 127.5px;
+    height: max-content;
+    text-align: center;
+    max-height: 153px;
+}
+
+#upload div {
+    width: max-content;
+    align-self: center;
+    font-size: 40px;
+}
+
+#upload {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    color: #888e95;
+    transition: color .3s ease-in-out;
+    top: 340px;
+    left: calc(50% - 64px);
+    pointer-events: all;
+    cursor: pointer;
+}
+
+#upload:hover {
+    color: #0BB1D3;
+}
+
+.dragNdrop::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.dragNdrop::before {
+    height: 100%;
+    display: inline-block;
+    outline: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.dragNdrop:hover::before {
+    border-color: black;
+}
+
+.dragNdrop:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.access {
+    align-self: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 400px;
+    margin-bottom: 40px;
+}
+
+.access p {
+    width: max-content;
+    height: max-content;
+    margin-bottom: 0;
 }
 
 .git {
     background-color: #757575;
     -webkit-mask: url(Github.svg) no-repeat center;
     mask: url(Github.svg) no-repeat center;
-    -webkit-mask-size: 40px 40px;
+    -webkit-mask-size: 65px 65px;
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
 }
 
-.preIcon {
-    width: 40px;
-    height: 40px;
-    margin: 5px 10px 0 0;
+.fz {
+    width: 51px;
+    height: 51px;
+    transition: box-shadow .8s ease-in-out;
+    cursor: pointer;
+    border-radius: 50px;
 }
 
-.filezillaoption {
-    width: 495px;
-    display: flex;
-    flex-wrap: wrap;
+.git:hover {
+    transform: scale(1.05);
 }
 
-.filezillaoption .group:nth-child(2) {
-    margin-left: 0;
+#send {
+    width: 260px;
+    align-self: center;
+    font-size: 0.8em;
+    outline: 0;
+    margin-bottom: 40px;
+    height: 60px;
+    padding: 0 40px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    background-image: linear-gradient(to right, #0BB1D3, #0B75D3);
+    box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .75);
+    text-transform: uppercase;
+    transition: box-shadow 1s, background-color 1s ease;
+    cursor: pointer;
 }
 
-.filezillaoption .group,
-.filezillaoption input,
-.filezillaoption .bar {
-    width: 175px;
+label.error {
+    font-size: 12px;
+    position: absolute;
+    top: 50px;
+    color: red;
 }
 
-
-.zillabackground {
-    fill: #757575 !important;
+input:focus~.error {
+    top: 50px;
+    font-size: 12px;
+    color: red;
 }
 
 /*--- Input Form ---*/
@@ -693,6 +799,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
 }
 
 .group {
@@ -731,6 +838,7 @@ label {
 }
 
 /* active state */
+input:visited~label,
 input:focus~label,
 input:valid~label {
     top: -20px;
@@ -767,6 +875,8 @@ input:valid~label {
 }
 
 /* active state */
+input:visited~.bar:before,
+input:visited~.bar:after,
 input:focus~.bar:before,
 input:focus~.bar:after {
     width: 50%;
@@ -784,6 +894,7 @@ input:focus~.bar:after {
 }
 
 /* active state */
+input:visited~.highlight,
 input:focus~.highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
