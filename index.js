@@ -271,7 +271,7 @@ $(document).ready(function () {
         $("#url").on("submit", function () {
             gtag('event', 'Klicks auf Senden', {
                 'event_category': 'User',
-                'event_label': $("#url input").val()
+                'event_label': '' + $("#url input").val()
             });
         })
 
