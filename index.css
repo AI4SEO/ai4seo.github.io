@@ -629,8 +629,10 @@ footer {
     color: #5F6368;
 }
 
-.option {
+#hero #option {
     font-family: 'Orbitron';
+    text-align: center;
+    width: initial;
 }
 
 .upload {
@@ -655,8 +657,15 @@ footer {
     width: 50%;
 }
 
-.dragNdrop {
+.dnd-container {
     margin: 40px 0 80px;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}
+
+.dragNdrop {
+    position: absolute;
     align-self: center;
     width: 700px;
     height: 300px;
@@ -690,15 +699,16 @@ input[type='file'] {
 }
 
 #upload {
+    top: calc(50% - 40px);
+    position: relative;
     display: flex;
     flex-direction: column;
     border: none;
     color: #888e95;
     transition: color .3s ease-in-out;
-    top: 340px;
-    left: calc(50% - 64px);
     pointer-events: all;
     cursor: pointer;
+    height: 76px;
 }
 
 #upload:hover {

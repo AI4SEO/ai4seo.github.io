@@ -57,7 +57,7 @@
     </section>
     <div class="container" data-scroll-speed="20">
         <section id="hero">
-            <h2 class="option">Choose an option.</h2>
+            <h2 id="option">Choose an option.</h2>
         </section>
         <section class="choices">
             <h3>Provide an URL in order for us to crawl your code (*)</h3>
@@ -77,14 +77,17 @@
             <p>With this option you will have access to optimizing all encountered SEO objectives of your choice and
                 downloading the optimized file.
             </p>
-            <input id="files" type="file" class="dragNdrop" accept=".js,.html,.css,.scss,.svg,.png,.jpg,.zip" ondrop="gtag('event', 'Abgelegte Dateien', {
+            <div class="dnd-container">
+                <input id="files" type="file" class="dragNdrop" accept=".js,.html,.css,.scss,.svg,.png,.jpg,.zip"
+                    ondrop="gtag('event', 'Abgelegte Dateien', {
                     'event_category': 'User',
                     'event_label': 'Drop File Upload'
                   });">
-            <label for="files" id="upload">
-                <div class="material-icons">cloud_upload</div>
-                <p id="drag">Drag & Drop</p>
-            </label>
+                <label for="files" id="upload">
+                    <div class="material-icons">cloud_upload</div>
+                    <p id="drag">Drag & Drop</p>
+                </label>
+            </div>
             <h3>Make a choice to provide access for the unlimited experience (optional)</h3>
             <p>With this option you will have access to choosing between all SEO objectives encountered in the
                 analysis to be optimized directly to your files alongside SEO content strategies.

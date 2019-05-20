@@ -333,10 +333,12 @@ $(document).ready(function () {
         })
 
         $(".dragNdrop").on("dragover", function () {
+            $("#upload").css("pointer-events", "none");
             $("#drag, #upload div").css("color", "#0BB1D3");
         })
 
         $(".dragNdrop").on("dragleave", function () {
+            $("#upload").css("pointer-events", "all");
             $("#drag, #upload div").css("color", "#888e95");
         })
 
