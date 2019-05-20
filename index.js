@@ -279,6 +279,13 @@ $(document).ready(function () {
         stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
         landingText = "Use AI4SEO<br>for free until your ranking improves.";
 
+        $("#url input").on("focus", function () {
+            console.log("hi");
+            if ($("#url input").val() == "") {
+                $("#url input").val("https://");
+            }
+        })
+
         $("#url").on("submit", function () {
             gtag('event', 'Klicks auf Senden', {
                 'event_category': 'User',
