@@ -92,7 +92,8 @@ p {
 }
 
 #landing {
-    margin-top: 80px;
+    padding: 80px 0 0 0;
+    margin-top: 100px;
     background-color: transparent;
     background-size: cover;
     height: calc(100vh - 180px);
@@ -371,7 +372,7 @@ h2 {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 6.261vw;
     color: white;
     font-family: 'Orbitron';
     transition: color 1s ease, text-shadow 1s ease;
@@ -384,15 +385,15 @@ h2 {
 h1,
 #landing p {
     text-align: center;
-    width: 100%;
+    width: max-content;
     font-weight: 300;
 }
 
 #landing p {
-    margin-top: 80px;
-    font-size: 2em;
+    margin-top: 6.957vw;
+    font-size: 3.130vw;
     color: white;
-    height: 162px;
+    height: max-content;
     transition: color 1s ease, text-shadow 1s ease;
 }
 
@@ -427,7 +428,7 @@ h1,
 .see {
     margin-left: 450px;
     outline: 0;
-    margin-top: 80px;
+    margin-top: 3.478vw;
     z-index: 1;
     color: white;
     display: flex;
@@ -667,7 +668,7 @@ footer {
 .dragNdrop {
     position: absolute;
     align-self: center;
-    width: 700px;
+    width: calc(100% - 200px);
     height: 300px;
     box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .5);
     display: flex;
@@ -982,5 +983,35 @@ input:focus~.highlight {
     to {
         width: 0;
         background: transparent;
+    }
+}
+
+/* MEDIA QUERIES ================ */
+
+@media only screen and (min-width: 1340px) {
+
+    #uploadShade {
+        box-shadow: 2px 6px 16px 0 rgba(0, 0, 0, .5);
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+
+    #uploadLandingImage,
+    #landingImage {
+        width: 1150px;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    #landing p {
+        margin-top: 80px;
+        font-size: 2em;
+    }
+
+    .see {
+        margin-top: 40px;
     }
 }

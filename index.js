@@ -12,6 +12,7 @@ $(document).ready(function () {
     var pathname = url.substr(url.lastIndexOf('/') + 1);
 
     window.addEventListener("scroll", checkLandingVisibility);
+    window.addEventListener("resize", checkLandingVisibility);
 
     function checkLandingVisibility() {
         if ($(document).scrollTop() >= $("#landing").height() + 100) {
@@ -48,6 +49,9 @@ $(document).ready(function () {
         window.addEventListener("scroll", checkActionVisibility);
         window.addEventListener("scroll", checkActionPosition);
         window.addEventListener("scroll", checkArcPosition);
+        window.addEventListener("resize", checkActionVisibility);
+        window.addEventListener("resize", checkActionPosition);
+        window.addEventListener("resize", checkArcPosition);
 
         function checkActionPosition() {
             $(".action").css("height", $("#closingImage").height() - 100 + "px");
@@ -274,13 +278,19 @@ $(document).ready(function () {
         }
     } else {
 
+        function setStickyPoint() {
+            console.log("hi");
+            stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
+        }
+
+        window.addEventListener("load", setStickyPoint);
+        window.addEventListener("resize", setStickyPoint);
+
         var gitClick = false;
         var fzClick = false;
-        stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
         landingText = "Use AI4SEO<br>for free until your ranking improves.";
 
         $("#url input").on("focus", function () {
-            console.log("hi");
             if ($("#url input").val().length <= 8 && $("#url input").val().substring(0, 7) != "https://") {
                 $("#url input").val("https://");
             }
@@ -308,7 +318,6 @@ $(document).ready(function () {
             if (fzClick == true) {
                 return;
             } else {
-                console.log(fzClick);
                 $(".fz").css("transform", "scale(1)");
             }
         })
@@ -343,7 +352,6 @@ $(document).ready(function () {
         })
 
         $("#files").on("change", function () {
-            console.log("change");
             $("#drag").css("font-size", "12px");
             $("#drag").html(this.value.replace(/.*[\/\\]/, ''));
         });
@@ -398,6 +406,16 @@ $(document).ready(function () {
         }
     }
 
+    function checkLandingHeight() {
+
+        if (window.innerHeight >= $("#uploadLandingImage").height()) {
+            $("#landing").css("height", $("#uploadLandingImage").height() - 180);
+            $("#uploadShade").css("height", $("#uploadLandingImage").height() - 100);
+        }
+    };
+
+    checkLandingHeight();
+
     // Initialization
     function changeSpeed() {
         $('[data-scroll-speed]').moveIt();
@@ -405,6 +423,7 @@ $(document).ready(function () {
 
     setTimeout(function () {
         window.addEventListener("scroll", checkSpeedLimits);
+        window.addEventListener("resize", checkSpeedLimits);
         checkSpeedLimits();
     }, 100)
 
@@ -420,6 +439,11 @@ $(document).ready(function () {
     window.addEventListener("scroll", resetAnimation);
     window.addEventListener("scroll", toggleHero);
     window.addEventListener("scroll", changeShade);
+    window.addEventListener("resize", toggleButton);
+    window.addEventListener("resize", resetAnimation);
+    window.addEventListener("resize", toggleHero);
+    window.addEventListener("resize", changeShade);
+    window.addEventListener("resize", checkLandingHeight);
 
 
     function toggleButton() {
