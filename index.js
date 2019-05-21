@@ -281,7 +281,7 @@ $(document).ready(function () {
 
         $("#url input").on("focus", function () {
             console.log("hi");
-            if ($("#url input").val() == "") {
+            if ($("#url input").val().length <= 8 && $("#url input").val().substring(0, 7) != "https://") {
                 $("#url input").val("https://");
             }
         })
