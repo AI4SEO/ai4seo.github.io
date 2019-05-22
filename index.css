@@ -1015,3 +1015,90 @@ input:focus~.highlight {
         margin-top: 40px;
     }
 }
+
+@media only screen and (max-width: 886px) {
+
+    .choices h3,
+    .choices p {
+        width: 100%;
+    }
+
+    .access p {
+        width: max-content;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+
+    #uploadLandingImage {
+        width: 1050px;
+    }
+
+    h1 {
+        font-size: 56px;
+    }
+
+    #landing p {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (max-width: 607px) {
+
+    #uploadLandingImage {
+        width: 990px;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+
+    #landing p {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    form,
+    .group {
+        width: 100%;
+    }
+
+    #url input {
+        width: calc(100% - 5px);
+    }
+
+    .group {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 461px) {
+
+    #uploadLandingImage {
+        width: 940px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    #landing p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 458px) {
+    #send {
+        width: 100%;
+        margin: 0 26px;
+    }
+}
+
+@media only screen and (max-width: 452px) {
+    .access {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
