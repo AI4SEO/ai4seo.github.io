@@ -428,7 +428,7 @@ h1,
 .see {
     margin-left: 450px;
     outline: 0;
-    margin-top: 3.478vw;
+    margin-top: 80px;
     z-index: 1;
     color: white;
     display: flex;
@@ -1009,10 +1009,6 @@ input:focus~.highlight {
     #landing p {
         margin-top: 80px;
         font-size: 2em;
-    }
-
-    .see {
-        margin-top: 40px;
     }
 }
 

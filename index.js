@@ -14,7 +14,6 @@ $(document).ready(function () {
 
     function setStickyPoint() {
         setTimeout(function () {
-            console.log($(".container")[0].getBoundingClientRect().top, $(".see")[0].getBoundingClientRect().bottom, $("#landing").height());
             stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
         }, 1000)
     }
@@ -29,6 +28,8 @@ $(document).ready(function () {
         if (window.innerHeight >= $("#uploadLandingImage").height()) {
             $("#landing").css("height", $("#uploadLandingImage").height() - 180);
             $("#uploadShade").css("height", $("#uploadLandingImage").height() - 100);
+        } else if (window.innerHeight >= $("#landingImage").height()) {
+            $("#landing").css("height", $("#landingImage").height() - 180);
         }
     };
 
@@ -482,7 +483,6 @@ $(document).ready(function () {
     }
 
     function toggleHero() {
-        console.log($(window).scrollTop(), stickyPoint);
         if ($(window).scrollTop() >= stickyPoint) {
             containerTranslateAmount = 0 - stickyPoint;
             $(".container").removeAttr("data-scroll-speed");
