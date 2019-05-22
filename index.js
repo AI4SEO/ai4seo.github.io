@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     const footerChangePosition = window.innerHeight - $("#closingImage").height() - $("header").height();
 
+    checkLandingHeight();
     checkLandingVisibility();
 
     var stickyPoint;
@@ -11,8 +12,25 @@ $(document).ready(function () {
     var url = window.location.pathname;
     var pathname = url.substr(url.lastIndexOf('/') + 1);
 
+    function setStickyPoint() {
+        setTimeout(function () {
+            console.log($(".container")[0].getBoundingClientRect().top, $(".see")[0].getBoundingClientRect().bottom, $("#landing").height());
+            stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
+        }, 1000)
+    }
+
+    window.addEventListener("load", setStickyPoint);
+    window.addEventListener("resize", setStickyPoint);
+
     window.addEventListener("scroll", checkLandingVisibility);
     window.addEventListener("resize", checkLandingVisibility);
+
+    function checkLandingHeight() {
+        if (window.innerHeight >= $("#uploadLandingImage").height()) {
+            $("#landing").css("height", $("#uploadLandingImage").height() - 180);
+            $("#uploadShade").css("height", $("#uploadLandingImage").height() - 100);
+        }
+    };
 
     function checkLandingVisibility() {
         if ($(document).scrollTop() >= $("#landing").height() + 100) {
@@ -35,7 +53,6 @@ $(document).ready(function () {
         return;
     } else if (pathname == "index.html") {
 
-        stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".start")[0].getBoundingClientRect().bottom + 33;
         landingText = "Welcome to AI 4 SEO!<br>Use our AI-driven tool to boost your ranking.";
 
         checkActionVisibility();
@@ -278,14 +295,6 @@ $(document).ready(function () {
         }
     } else {
 
-        function setStickyPoint() {
-            console.log("hi");
-            stickyPoint = $(".container")[0].getBoundingClientRect().top - $(".see")[0].getBoundingClientRect().bottom + 33;
-        }
-
-        window.addEventListener("load", setStickyPoint);
-        window.addEventListener("resize", setStickyPoint);
-
         var gitClick = false;
         var fzClick = false;
         landingText = "Use AI4SEO<br>for free until your ranking improves.";
@@ -406,16 +415,6 @@ $(document).ready(function () {
         }
     }
 
-    function checkLandingHeight() {
-
-        if (window.innerHeight >= $("#uploadLandingImage").height()) {
-            $("#landing").css("height", $("#uploadLandingImage").height() - 180);
-            $("#uploadShade").css("height", $("#uploadLandingImage").height() - 100);
-        }
-    };
-
-    checkLandingHeight();
-
     // Initialization
     function changeSpeed() {
         $('[data-scroll-speed]').moveIt();
@@ -483,6 +482,7 @@ $(document).ready(function () {
     }
 
     function toggleHero() {
+        console.log($(window).scrollTop(), stickyPoint);
         if ($(window).scrollTop() >= stickyPoint) {
             containerTranslateAmount = 0 - stickyPoint;
             $(".container").removeAttr("data-scroll-speed");
