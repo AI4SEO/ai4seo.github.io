@@ -26,6 +26,7 @@ header {
 
 #logo {
     margin-left: 26px;
+    display: flex;
 }
 
 header object {
@@ -213,6 +214,7 @@ p {
     display: flex;
     justify-content: center;
     padding: 60px 10px;
+    align-items: center;
 }
 
 .technology img {
@@ -230,7 +232,6 @@ p {
 .closing object {
     width: 120px;
     height: 120px;
-    padding-left: 20px;
     margin-bottom: 28px;
 }
 
@@ -387,6 +388,7 @@ h1,
     text-align: center;
     width: max-content;
     font-weight: 300;
+    transition: font-size .3s ease-in-out;
 }
 
 #landing p {
@@ -1009,6 +1011,42 @@ input:focus~.highlight {
     #landing p {
         margin-top: 80px;
         font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .how {
+        flex-wrap: wrap;
+        padding: 100px 20vw;
+    }
+
+    .card {
+        margin: 60px 0;
+        width: 215px;
+    }
+
+    .advantages {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .advantage {
+        max-width: 50%;
+    }
+
+    .technologies {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .technology {
+        width: 30%;
+        margin-top: 40px;
+    }
+
+    .technology img {
+        width: 125px;
+        height: 125px;
     }
 }
 
