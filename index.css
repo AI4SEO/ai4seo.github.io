@@ -30,8 +30,8 @@ header {
 }
 
 header object {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     pointer-events: none;
 }
 
@@ -230,15 +230,15 @@ p {
 }
 
 .closing object {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 28px;
+    width: 150px;
+    height: 150px;
 }
 
 .closing h2 {
     color: #888e95;
     font-size: 44px;
     font-weight: 300;
+    margin: 30px 0 50px 0;
 }
 
 .closing button {
