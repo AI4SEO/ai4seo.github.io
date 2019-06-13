@@ -45,69 +45,25 @@
         </a>
     </header>
     <section id="landing">
-        <h1>ENJOY FREEDOM</h1>
-        <p>
-            Use AI4SEO<br>for free until your ranking improves.
-        </p>
-        <div class="buttons">
-            <button class="see upload"><span class="material-icons">arrow_downward</span>View Options</button>
+        <h1 id="option">ENHANCE YOUR SEARCH ENGINE OPTIMIZATION</h1>
+        <form id="url" name="url" validate>
+            <div class="group">
+                <input type="url" id="website" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Enter URL of the webpage</label>
+            </div>
+            <input id="send" type="submit" form="url" value="Analyze">
+        </form>
+        <div id="explainer" class="card">
+            <h3>About AI4SEO</h3>
+            <p>Our artificial intelligence searches for your publicly readable code in order to create a copy. This copy
+                will
+                then be analyzed, optimized and provided for you as a download. All in the blink of an eye.</p>
         </div>
         <img id="uploadLandingImage" src="UploadLandingImage.jpg">
         <div id="uploadShade"></div>
     </section>
-    <div class="container" data-scroll-speed="20">
-        <section id="hero">
-            <h2 id="option">Choose an option.</h2>
-        </section>
-        <section class="choices">
-            <h3>Provide an URL in order for us to crawl your code (*)</h3>
-            <p>With this option you will have access to a SEO analysis of your website and embeddable code snippets for
-                optimizing your code.</p>
-            <form id="url" name="url" target="_blank" method="GET" action="./thankyou.html" validate>
-                <div class="group">
-                    <input type="url" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Paste Your URL</label>
-                </div>
-            </form>
-        </section>
-        <section class="choices">
-            <h3>Provide a file for an enhanced experience (optional)</h3>
-            <p>With this option you will have access to optimizing all encountered SEO objectives of your choice and
-                downloading the optimized file.
-            </p>
-            <div class="dnd-container">
-                <input id="files" type="file" class="dragNdrop" accept=".js,.html,.css,.scss,.svg,.png,.jpg,.zip"
-                    ondrop="gtag('event', 'Abgelegte Dateien', {
-                    'event_category': 'User',
-                    'event_label': 'Drop File Upload'
-                  });">
-                <label for="files" id="upload">
-                    <div class="material-icons">cloud_upload</div>
-                    <p id="drag">Drag & Drop</p>
-                </label>
-            </div>
-            <h3>Make a choice to provide access for the unlimited experience (optional)</h3>
-            <p>This option allows you to choose between all SEO objectives encountered in the
-                analysis to be optimized directly to your files alongside SEO content strategies.
-            </p>
-            <div class="access">
-                <div class="git" onclick="gtag('event', 'Klicks auf Github', {
-                    'event_category': 'User',
-                    'event_label': 'Provide Github Access'
-                  });"></div>
-                <p>|</p>
-                <img class="fz" src="FileZilla.svg" onclick="gtag('event', 'Klicks auf FileZilla', {
-                    'event_category': 'User',
-                    'event_label': 'Provide FileZilla Access'
-                  });">
-            </div>
-        </section>
-        <section class="choices">
-            <input id="send" type="submit" form="url" value="send" />
-        </section>
-    </div>
     <footer>
         <div class="social">
             <p>Follow us</p>

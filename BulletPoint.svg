@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!--Generator: Gravit.io-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" style="isolation:isolate" viewBox="0 0 24 24">
+    <defs>
+        <clipPath id="_clipPath_tF9wvhNepFZo3dXXfKpUYg7SZT6UzaWY">
+            <rect width="24" height="24"/>
+        </clipPath>
+        <linearGradient id="grad1" x1="0%" x2="100%" y1="0%" y2="0%">
+            <stop offset="0%" style="stop-color:rgb(11,177,211);stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:rgb(11,117,211);stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+    <g clip-path="url(#_clipPath_tF9wvhNepFZo3dXXfKpUYg7SZT6UzaWY)">
+        <g id="baseline-whatshot-24px">
+            <path fill="url(#grad1)" d=" M 13.5 0.67 C 13.5 0.67 14.24 3.32 14.24 5.47 C 14.24 7.53 12.89 9.2 10.83 9.2 C 8.76 9.2 7.2 7.53 7.2 5.47 L 7.23 5.11 C 5.21 7.51 4 10.62 4 14 C 4 18.42 7.58 22 12 22 C 16.42 22 20 18.42 20 14 C 20 8.61 17.41 3.8 13.5 0.67 Z  M 11.71 19 C 9.93 19 8.49 17.6 8.49 15.86 C 8.49 14.24 9.54 13.1 11.3 12.74 C 13.07 12.38 14.9 11.53 15.92 10.16 C 16.31 11.45 16.51 12.81 16.51 14.2 C 16.51 16.85 14.36 19 11.71 19 Z "/>
+            <path fill="none" d=" M 0 0 L 24 0 L 24 24 L 0 24 L 0 0 Z "/>
+        </g>
+    </g>
+</svg>
