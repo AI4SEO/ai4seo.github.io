@@ -49,7 +49,7 @@ li:nth-child(n+2) {
     margin-left: 40px;
 }
 
-li a {
+a {
     color: #5F6368;
     text-transform: uppercase;
     font-size: 0.8em;
@@ -625,6 +625,7 @@ footer {
     padding: 30px 32px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .lower p {
