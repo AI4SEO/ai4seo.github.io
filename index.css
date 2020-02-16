@@ -49,7 +49,7 @@ li:nth-child(n+2) {
     margin-left: 40px;
 }
 
-li a {
+a {
     color: #5F6368;
     text-transform: uppercase;
     font-size: 0.8em;
@@ -594,26 +594,22 @@ footer {
 
 .twitter {
     background-color: #000000;
-    -webkit-mask: url(Twitter.svg) no-repeat center;
-    mask: url(Twitter.svg) no-repeat center;
+    background: url(Twitter.svg) no-repeat center;
 }
 
 .facebook {
     background-color: #000000;
-    -webkit-mask: url(Facebook.svg) no-repeat center;
-    mask: url(Facebook.svg) no-repeat center;
+    background: url(Facebook.svg) no-repeat center;
 }
 
 .instagram {
     background-color: #000000;
-    -webkit-mask: url(Instagram.svg) no-repeat center;
-    mask: url(Instagram.svg) no-repeat center;
+    background: url(Instagram.svg) no-repeat center;
 }
 
 .reddit {
     background-color: #000000;
-    -webkit-mask: url(Reddit.svg) no-repeat center;
-    mask: url(Reddit.svg) no-repeat center;
+    background: url(Reddit.svg) no-repeat center;
 }
 
 .twitter:hover,
@@ -629,6 +625,7 @@ footer {
     padding: 30px 32px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .lower p {
