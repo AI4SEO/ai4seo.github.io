@@ -1,0 +1,10 @@
+User-Agent: *
+Allow: /index.html
+Allow: /upload.html
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+Disallow: /
+Sitemap: https://ai4seo.github.iositemap.xml
