@@ -6,5 +6,5 @@ Allow: /*.css$
 Allow: /*.jpg$
 Allow: /*.png$
 Allow: /*.svg$
-Disallow: /
-Sitemap: https://ai4seo.github.iositemap.xml
+Disallow:
+Sitemap: https://ai4seo.github.io/sitemap.xml
